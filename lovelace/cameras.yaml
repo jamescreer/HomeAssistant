@@ -1,0 +1,22 @@
+background: var(--background-image)
+title: Cameras
+icon: mdi:camera
+cards:
+  - type: vertical-stack
+    cards:
+     - type: picture-entity
+       entity: camera.front_door
+       camera_view: live
+  - type: entities
+    title: Arlo
+    show_header_toggle: false
+    entities:
+      - entity: sensor.arlo_cameras
+      - entity: sensor.captured_today_garage
+      - entity: sensor.last_garage
+      - entity: sensor.captured_today_kitchen
+      - entity: sensor.last_kitchen
+      - entity: sensor.captured_today_front_room
+      - entity: sensor.last_front_room
+      - entity: sensor.captured_today_nursery
+      - entity: sensor.last_nursery

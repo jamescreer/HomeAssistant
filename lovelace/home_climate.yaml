@@ -1,0 +1,67 @@
+background: var(--background-image)
+title: Home Climate
+icon: mdi:home-analytics
+cards:
+  - type: entities
+    title: Kitchen
+    show_header_toggle: false
+    entities:
+      - entity: sensor.netatmo_indoors_co2
+      - entity: sensor.netatmo_indoors_humidity
+      - entity: sensor.netatmo_indoors_noise
+      - entity: sensor.netatmo_indoors_temperature
+      - entity: sensor.netatmo_indoors_min_temp
+      - entity: sensor.netatmo_indoors_max_temp
+      - entity: sensor.netatmo_indoors_pressure
+
+  - type: entities
+    title: Nursery
+    show_header_toggle: false
+    entities:
+      - entity: sensor.air_quality_nursery
+      - entity: sensor.temperature_nursery
+      - entity: sensor.humidity_nursery
+
+  - type: entities
+    title: Bathroom
+    show_header_toggle: false
+    entities:
+      - entity: sensor.bathroom_sensor_light_level
+      - entity: sensor.bathroom_sensor_temperature
+
+  - type: entities
+    title: Garage
+    show_header_toggle: false
+    entities:
+      - entity: sensor.garage_sensor_light_level
+      - entity: sensor.garage_sensor_temperature
+
+  - type: entities
+    title: Laundry
+    show_header_toggle: false
+    entities:
+      - entity: sensor.laundry_sensor_light_level
+      - entity: sensor.laundry_sensor_temperature
+
+  - type: entities
+    title: Z-Wave
+    show_header_toggle: false
+    entities:
+      - entity: sensor.back_door_temp
+      - entity: sensor.sliding_door_temp
+
+  - type: entities
+    title: Outdoors
+    show_header_toggle: false
+    entities:
+      - type: section
+        label: Temperature
+      - entity: sensor.netatmo_outdoors_humidity
+      - entity: sensor.netatmo_outdoors_temperature
+      - entity: sensor.netatmo_outdoors_min_temp
+      - entity: sensor.netatmo_outdoors_max_temp
+      - type: section
+        label: Rain
+      - entity: sensor.netatmo_rain_rain
+      - entity: sensor.netatmo_rain_sum_rain_1
+      - entity: sensor.netatmo_rain_sum_rain_24

@@ -1,0 +1,62 @@
+####################################################
+#                                                  #
+#                     WEATHER                      #
+#                                                  #
+####################################################
+background: var(--background-image)
+title: Weather
+cards:
+  - type: weather-forecast
+    title: Weather
+    entity: weather.dark_sky
+
+  - type: entities
+    show_header_toggle: false
+    entities:
+     - entity: sun.sun
+       name: Sun
+     - entity: sensor.sunrise
+       name: Next Sunrise
+       icon: mdi:weather-sunset-up
+     - entity: sensor.sunset
+       name: Next Sunset
+       icon: mdi:weather-sunset-down
+     - entity: sensor.moon
+
+  - type: entities
+    title: UV Index
+    show_header_toggle: false
+    entities:
+      - entity: binary_sensor.protection_window
+      - entity: sensor.skin_type_3_safe_exposure_time
+      - entity: sensor.current_uv_level
+      - entity: sensor.current_uv_index
+      - entity: sensor.max_uv_index
+      - entity: sensor.current_ozone_level
+
+  - type: entities
+    title: BOM Penrith
+    show_header_toggle: false
+    entities:
+      - entity: sensor.penrith_forecast_summary
+      - entity: sensor.bom_penrith_air_temp_c
+      - entity: sensor.bom_penrith_feels_like_c
+      - entity: sensor.bom_penrith_rain_today
+      - entity: sensor.bom_penrith_relative_humidity
+      - entity: sensor.bom_penrith_wind_direction
+      - entity: sensor.bom_penrith_wind_gust_kmh
+      - entity: sensor.bom_penrith_wind_speed_kmh
+
+  - type: iframe
+    url: https://embed.windy.com/embed2.html?lat=-33.751&lon=150.694&zoom=11&level=surface&overlay=radar&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=33.751&detailLon=150.694&metricWind=default&metricTemp=%C2%B0F&radarRange=-1
+    aspect_ratio: 80%
+  - type: iframe
+    url: https://embed.windy.com/embed2.html?lat=-33.777&lon=150.698&zoom=11&level=surface&overlay=wind&menu=&message=&marker=&calendar=&pressure=&type=map&location=coordinates&detail=&detailLat=-33.777&detailLon=150.698&metricWind=m%2Fs&metricTemp=%C2%B0C&radarRange=-1
+    aspect_ratio: 80%
+
+####################################################
+#                                                  #
+#          END OF CONFIGURATION FILE               #
+#                                                  #
+####################################################
+#                                                  #

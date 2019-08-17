@@ -1,0 +1,65 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+  - alias: Home Assistant Started
+    initial_state: 'true'
+    trigger:
+      platform: homeassistant
+      event: start
+    action:
+      - service: notify.james
+        data:
+          title: "Home Assistant Started"
+          message: "Home Assistant Has Started"
+
+  - alias: Home Assistant Stopped
+    initial_state: 'true'
+    trigger:
+      platform: homeassistant
+      event: shutdown
+    action:
+      - service: notify.james
+        data:
+          title: "Home Assistant Stopped"
+          message: "Home Assistant Has Stopped"
+
+#  - alias: Update Template Sensors
+#    initial_state: 'true'
+#    trigger:
+#        platform: time_pattern
+#        minutes: '/10'
+#    action:
+#      - service: homeassistant.update_entity
+#        entity_id:
+#          - sensor.duedate
+#          - sensor.tracker_count
+#          - sensor.lights_count
+#          - sensor.binary_sensor_count
+#          - sensor.switch_count
+#          - sensor.automation_count
+#          - sensor.script_count
+#          - sensor.sensor_count
+
+  - alias: "Disk Use Alarm"
+    initial_state: 'true'
+    trigger:
+      - platform: numeric_state
+        entity_id: sensor.disk_use_percent_home
+        above: 85
+    action:
+      service: notify.james
+      data_template:
+        title: "Hass.io VM Disk Use Alarm"
+        message: "Hass.io VM is running low on disk space, usage is currently at {{ states.sensor.disk_use_percent_home.state }} %!"
+
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

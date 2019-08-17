@@ -1,0 +1,23 @@
+#https://home-assistant.io/components/notify/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/pushover/
+  - name: james
+    platform: pushover
+    api_key: !secret pushover_james_api
+    user_key: !secret pushover_james_user
+  - name: sarah
+    platform: pushover
+    api_key: !secret pushover_sarah_api
+    user_key: !secret pushover_sarah_user
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

@@ -1,0 +1,44 @@
+####################################################
+#                                                  #
+#                HOME ASSISTANT                    #
+#                                                  #
+####################################################
+background: var(--background-image)
+title: HA
+icon: mdi:home-assistant
+cards:
+  - type: entities
+    title: Home Assistant
+    show_header_toggle: false
+    entities:
+       - entity: sensor.home_assistant_log
+         name: Log File
+       - entity: sensor.home_assistant_v2_db
+         name: Database File
+       - entity: sensor.disk_use_percent_home
+         name: NAS Disk Usage
+         icon: mdi:harddisk
+       - entity: sensor.uptime
+  - type: glance
+    title: Home Assistant Info
+    entities:
+      - entity: sensor.installed_version
+        name: Installed
+        icon: mdi:folder-download
+      - entity: sensor.home_assistant_version
+        name: Latest Release
+        icon: mdi:github-circle
+    columns: 2
+  - type: entities
+    title: HA Status
+    show_header_toggle: false
+    entities:
+      - entity: sensor.hacs
+      - entity: sensor.automation_count
+      - entity: sensor.binary_sensor_count
+      - entity: sensor.lights_count
+      - entity: sensor.script_count
+      - entity: sensor.sensor_count
+      - entity: sensor.switch_count
+      - entity: sensor.tracker_count
+      

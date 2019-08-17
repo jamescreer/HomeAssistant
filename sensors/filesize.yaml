@@ -1,0 +1,19 @@
+#https://home-assistant.io/components/sensor/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/sensor.filesize/
+  - platform: filesize
+    file_paths:
+      - /config/home-assistant.log
+      - /config/home-assistant_v2.db
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

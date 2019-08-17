@@ -1,0 +1,33 @@
+#https://home-assistant.io/components/device_tracker/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/device_tracker.unifi/
+  - platform: unifi
+    host: 192.168.1.2
+    username: !secret ubiquiti_username
+    password: !secret ubiquiti_password
+    verify_ssl: false
+    detection_time: 60
+    ssid_filter:
+      - 'Creer'
+    monitored_conditions:
+      - mac
+      - ip
+      - last_seen
+
+#https://www.home-assistant.io/components/device_tracker.mqtt/
+  - platform: mqtt
+    devices:
+      james_bluetooth: 'remotepi/device_tracker/jc_iphone/state'
+      sarah_bluetooth: 'remotepi/device_tracker/sc/state'
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

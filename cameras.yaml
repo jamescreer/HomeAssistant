@@ -1,0 +1,16 @@
+#https://www.home-assistant.io/components/camera/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/ring/#camera
+  - platform: ring
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

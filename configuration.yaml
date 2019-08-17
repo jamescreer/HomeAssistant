@@ -1,0 +1,183 @@
+########################################
+#                                      #
+#            HOME ASSISTANT            #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/docs/configuration/basic/
+homeassistant:
+  name: Home
+  latitude: !secret latitude
+  longitude: !secret longitude
+  elevation: 46
+  unit_system: metric
+  whitelist_external_dirs:
+    - /config
+
+########################################
+#                                      #
+#              COMPONENTS              #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/arlo/
+arlo:
+  username: !secret general_email
+  password: !secret arlo_password
+
+#https://www.home-assistant.io/components/cast/
+cast:
+  media_player:
+    - host: 192.168.1.30
+    - host: 192.168.1.31
+    - host: 192.168.1.32
+    - host: 192.168.1.35
+
+#https://www.home-assistant.io/components/cloud/
+cloud:
+
+#https://home-assistant.io/components/config/
+config:
+
+#https://www.home-assistant.io/components/downloader
+downloader:
+  download_dir: downloads
+
+#https://www.home-assistant.io/components/frontend/
+frontend:
+  themes: !include themes.yaml
+
+#https://www.home-assistant.io/components/nsw_rural_fire_service_feed/
+geo_location:
+  - platform: nsw_rural_fire_service_feed
+
+#https://home-assistant.io/components/history/
+history:
+
+#https://home-assistant.io/components/http/
+http:
+  ip_ban_enabled: true
+  login_attempts_threshold: 2
+
+#https://www.home-assistant.io/components/hue/
+hue:
+  bridges:
+    - host: 192.168.1.103
+      allow_unreachable: true
+      allow_hue_groups: false
+
+#https://www.home-assistant.io/components/logbook/
+logbook:
+
+#https://home-assistant.io/components/logger/
+logger:
+  default: error
+
+#https://www.home-assistant.io/lovelace/yaml-mode/
+lovelace:
+  mode: yaml
+
+#https://www.home-assistant.io/components/map/
+map:
+
+#https://www.home-assistant.io/components/netatmo/
+netatmo:
+  api_key: !secret netatmo_api_key
+  secret_key: !secret netatmo_secret_key
+  username: !secret general_email
+  password: !secret netatmo_password
+
+#https://www.home-assistant.io/components/openuv/
+openuv:
+  api_key: !secret openuv
+  binary_sensors:
+    monitored_conditions:
+      - uv_protection_window
+  sensors:
+    monitored_conditions:
+      - current_ozone_level
+      - current_uv_index
+      - current_uv_level
+      - max_uv_index
+      - safe_exposure_time_type_3
+
+#https://www.home-assistant.io/components/person/
+person:
+
+#https://www.home-assistant.io/components/ring/
+ring:
+  username: !secret general_email
+  password: !secret ring_password
+
+#https://www.home-assistant.io/components/speedtestdotnet/
+speedtestdotnet:
+
+#https://home-assistant.io/components/sun/
+sun:
+
+#https://www.home-assistant.io/components/system_health/
+system_health:
+
+#https://www.home-assistant.io/components/tplink/
+tplink:
+  discovery: false
+  switch:
+    - host: 192.168.1.60
+    - host: 192.168.1.61
+    - host: 192.168.1.62
+    - host: 192.168.1.63
+    - host: 192.168.1.64
+    - host: 192.168.1.65
+    
+#https://www.home-assistant.io/components/tts/
+tts:
+  - platform: google_translate
+
+#https://www.home-assistant.io/components/vacuum.xiaomi_miio/
+vacuum:
+  - platform: xiaomi_miio
+    host: 192.168.1.21
+    token: !secret xiaomi_miio
+
+#https://www.home-assistant.io/components/weather.darksky/
+weather:
+  - platform: darksky
+    api_key: !secret darksky_api
+    mode: daily
+
+########################################
+#                                      #
+#          CUSTOM COMPONENTS           #
+#                                      #
+########################################
+
+#https://custom-components.github.io/hacs/
+hacs:
+  token: !secret github_token
+
+########################################
+#                                      #
+#         CONFIGURATION FILES          #
+#                                      #
+########################################
+
+#https://home-assistant.io/docs/configuration/splitting_configuration/
+automation: !include_dir_merge_list automations/
+binary_sensor: !include binary_sensor.yaml
+camera: !include cameras.yaml
+device_tracker: !include device_tracker.yaml
+group: !include groups.yaml
+input_select: !include input_select.yaml
+input_number: !include input_number.yaml
+notify: !include notification.yaml
+recorder: !include recorder.yaml
+script: !include scripts.yaml
+sensor: !include_dir_merge_list sensors/
+zone: !include zones.yaml
+switch: !include switches.yaml
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

@@ -1,0 +1,103 @@
+####################################################
+#                                                  #
+#                  AUTOMATIONS                     #
+#                                                  #
+####################################################
+background: var(--background-image)
+title: Automations
+cards:
+  - type: entities
+    title: Lights
+    show_header_toggle: false
+    entities:
+      - entity: automation.21_00_lights_off
+        name: Lights off at 21:00
+        icon: mdi:hotel
+      - entity: automation.sunset_lights_on_1h
+      - entity: automation.home_lights_on
+      - entity: automation.05_45_lights_on
+      - entity: automation.everyone_has_left_turn_lights_off
+
+  - type: entities
+    title: Bedroom
+    show_header_toggle: false
+    entities:
+      - entity: automation.turn_off_bedroom_aircon
+        name: Turn off master bedroom aircon at 02:00
+        icon: mdi:fan
+
+  - type: entities
+    title: Home Assistant
+    show_header_toggle: false
+    entities:
+      - entity: automation.home_assistant_started
+      - entity: automation.home_assistant_stopped
+      - entity: automation.disk_use_alarm
+
+  - type: entities
+    title: Bins
+    show_header_toggle: false
+    entities:
+      - entity: automation.bin_night_green_red
+      - entity: automation.bin_night_green_yellow
+
+  - type: entities
+    title: Turtle Tanks
+    show_header_toggle: false
+    entities:
+      - entity: automation.sunrise_0_30
+      - entity: automation.tank_lights_off_sunset
+
+  - type: entities
+    title: Power Outage
+    show_header_toggle: false
+    entities:
+      - entity: automation.power_outage_office
+      - entity: automation.power_restored_office
+      - entity: automation.power_outage_garage
+      - entity: automation.power_restored_garage
+
+  - type: entities
+    title: Dishwasher
+    show_header_toggle: false
+    entities:
+      - entity: automation.set_dishwasher_active_when_power_detected
+      - entity: automation.set_dishwasher_clean
+      - entity: automation.set_dishwasher_drying_when_power_drops
+      - entity: automation.set_dishwasher_dirty_when_power_off
+      - entity: automation.send_alert_when_dishwasher_is_clean
+
+  - type: entities
+    title: Washing Machine
+    show_header_toggle: false
+    entities:
+      - entity: automation.set_washing_machine_active_when_power_detected
+      - entity: automation.set_washing_machine_clean_after_timeout
+      - entity: automation.set_washing_machine_finished_when_power_drops
+      - entity: automation.send_alert_when_washing_machine_is_clean
+  - type: entities
+    title: Network
+    show_header_toggle: false
+    entities:
+      - entity: automation.ip_changes
+
+  - type: entities
+    title: Location
+    show_header_toggle: false
+    entities:
+      - entity: automation.sarah_home
+      - entity: automation.james_home
+
+  - type: entities
+    title: Chromecast
+    show_header_toggle: false
+    entities:
+      - entity: automation.change_volume_google
+      - entity: automation.start_streaming_radio_on_chromecast
+      - entity: automation.stop_streaming_radio_on_chromecast
+
+  - type: entities
+    title: Air Conditioners
+    show_header_toggle: false
+    entities:
+      - entity: automation.turn_off_living_room_aircon

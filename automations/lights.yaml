@@ -1,0 +1,35 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: '21:00 - Lights Off'
+  initial_state: 'true'
+  trigger:
+    platform: time
+    at: "21:00:00"
+  action:
+    service: light.turn_off
+    entity_id: group.all_lights
+    data:
+      transition: 900
+
+- alias: 'Sunset Lights On - 1h'
+  initial_state: 'true'
+  trigger:
+    platform: sun
+    event: sunset
+    offset: '-01:00:00'
+  action:
+  - service: light.turn_on
+    entity_id: group.main_lights
+
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

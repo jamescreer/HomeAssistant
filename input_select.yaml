@@ -1,0 +1,59 @@
+#https://home-assistant.io/components/input_select/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+  radio_station:
+    name: Radio Station
+    options:
+      - Triple J
+      - Double J
+      - Nova 100
+      - "None"
+    initial: "None"
+    icon: mdi:radio
+
+  radio_player:
+    name: Radio Player
+    options:
+      - Kitchen
+      - Living Room
+      - Nursery
+      - "None"
+    initial: "Kitchen"
+    icon: mdi:cast
+
+  dishwasher_status:
+    name: Dishwasher Status
+    options:
+      - Dirty
+      - Running
+      - Drying
+      - Clean
+    initial: Dirty
+
+  washing_machine_status:
+    name: Washing Machine Status
+    options:
+      - Idle
+      - Running
+      - Finishing
+      - Clean
+    initial: Idle
+
+  dryer_status:
+    name: Dryer Status
+    options:
+      - Idle
+      - Running
+      - Dry
+    initial: Idle
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

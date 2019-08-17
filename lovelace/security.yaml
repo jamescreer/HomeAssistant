@@ -1,0 +1,43 @@
+####################################################
+#                                                  #
+#                SECURITY                          #
+#                                                  #
+####################################################
+background: var(--background-image)
+title: Security
+icon: mdi:motion-sensor
+cards:
+  - type: glance
+    title: Motion Sensors
+    entities:
+      - entity: binary_sensor.bathroom_sensor_motion
+        name: Bathroom
+      - entity: binary_sensor.garage_sensor_motion
+        name: Garage
+      - entity: binary_sensor.laundry_sensor_motion
+        name: Laundry
+    columns: 3
+  - type: glance
+    title: Door Status
+    entities:
+      - entity: sensor.front_door_status
+        name: Front Door
+        icon: mdi:door
+      - entity: sensor.sliding_door_status
+        name: Int. Garage
+        icon: mdi:door
+      - entity: sensor.back_door_status
+        name: Back Door
+        icon: mdi:door
+    columns: 3
+  - type: glance
+    title: Doorbell
+    entities:
+      - entity: binary_sensor.ring_front_door_ding
+        name: Ding
+      - entity: sensor.ring_front_door_last_ding
+        name: Last Ding
+      - entity: binary_sensor.ring_front_door_motion
+        name: Motion
+      - entity: sensor.ring_front_door_last_motion
+        name: Last Motion

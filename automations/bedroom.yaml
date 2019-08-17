@@ -1,0 +1,62 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: 'Turn off Bedroom Aircon'
+  initial_state: 'true'
+  trigger:
+      platform: time
+      at: '02:00:00'
+  action:
+  - service: switch.turn_off
+    entity_id: switch.aircon2
+  - service: notify.james
+    data_template:
+      message: "Bedroom Aircon has been switched off."
+
+- alias: '05:45 - Lights On'
+  initial_state: 'true'
+  trigger:
+    platform: time
+    at: "05:55:00"
+  condition:
+    condition: and
+    conditions:
+      - condition: time
+        weekday:
+        - mon
+        - tue
+        - wed
+        - thu
+        - fri
+      - condition: state
+        entity_id: person.james
+        state: 'home'
+  action:
+    service: light.turn_on
+    entity_id: light.bedroom_1
+    data:
+      transition: 900
+
+- alias: 'Everyone has left - Turn Lights off'
+  initial_state: 'true'
+  trigger:
+    platform: state
+    entity_id: group.home_presence
+    to: "not_home"
+  action:
+   - service: notify.james
+     data_template:
+      message: 'Bedroom lights off - Have a good day!'
+   - service: light.turn_off
+     entity_id: light.bedroom_1
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

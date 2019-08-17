@@ -1,0 +1,19 @@
+#https://home-assistant.io/components/sensor/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#hhttps://www.home-assistant.io/components/pvoutput
+  - platform: pvoutput
+    system_id: !secret pvoutput_id
+    api_key: !secret pvoutput_api
+    scan_interval: 180
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

@@ -1,0 +1,53 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: 'Home - Lights on'
+  initial_state: 'true'
+  trigger:
+    platform: zone
+    entity_id: person.james_creer, person.sarah_creer
+    zone: zone.home
+    # Event is either enter or leave
+    event: enter  # or "leave"
+  action:
+    service: light.turn_on
+    entity_id: group.main_lights
+  condition:
+    condition: time
+    after: '20:00:00'
+    before: '23:00:00'
+
+- alias: 'Sarah Home'
+  initial_state: 'true'
+  trigger:
+    platform: zone
+    entity_id: person.sarah_creer
+    zone: zone.home
+    event: enter  # or "leave"
+  action:
+    service: notify.james
+    data_template:
+      message: 'Sarah has arrived home'
+
+- alias: 'James Home'
+  initial_state: 'true'
+  trigger:
+    platform: zone
+    entity_id: person.james_creer
+    zone: zone.home
+    event: enter  # or "leave"
+  action:
+    service: notify.sarah
+    data_template:
+      message: 'James has arrived home'
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

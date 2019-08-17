@@ -1,0 +1,86 @@
+####################################################
+#                                                  #
+#                   SWITCHES                       #
+#                                                  #
+####################################################
+background: var(--background-image)
+title: Switches
+cards:
+  - type: entities
+    title: Lights
+    show_header_toggle: false
+    entities:
+      - type: section
+        label: LIFX
+      - entity: light.bedroom_1
+        name: Bedroom
+      - entity: light.front_room_1
+        name: Front Room 1
+      - entity: light.front_room_2
+        name: Front Room 2
+      - entity: light.living_room_1
+        name: Living Room 1
+      - entity: light.living_room_2
+        name: Living Room 2
+      - entity: group.main_lights
+        name: Main Lights
+      - entity: script.main_lights_on
+        name: Main Lights On
+        icon: mdi:mdi:lightbulb-outline
+      - entity: script.main_lights_off
+        name: Main Lights Off
+        icon: mdi:mdi:lightbulb-outline
+      - type: section
+        label: Philips Hue
+      - entity: light.bathroom
+        name: Bathroom
+      - entity: light.garage
+        name: Garage
+      - entity: light.laundry
+        name: Laundry
+      - entity: light.nursery
+        name: Nursery
+  - type: entities
+    title: Broadlink IR Switches
+    show_header_toggle: false
+    entities:
+      - type: section
+        label: Living Room
+      - entity: switch.tv
+        name: TV - Power
+        icon: mdi:television
+      - entity: script.volumeup
+        name: TV Volume Up
+        icon: mdi:volume-plus
+      - entity: script.volumedown
+        name: TV Volume Down
+        icon: mdi:volume-minus
+      - entity: switch.aircon
+        name: Living Room Air Conditioner - Dry Mode
+        icon: mdi:fan
+      - entity: switch.aircon_winter
+        name: Living Room Air Conditioner - Heat Mode
+        icon: mdi:fan
+      - type: section
+        label: Bedroom
+      - entity: switch.aircon2
+        name: Bedroom Air Conditioner
+        icon: mdi:fan
+  - type: entities
+    title: TP-Link Switches
+    show_header_toggle: false
+    entities:
+      - entity: switch.eastern_long_neck
+      - entity: switch.eastern_short_neck
+      - entity: switch.baby_turtle_tank
+      - entity: switch.dishwasher
+      - entity: switch.washing_machine
+      - entity: switch.dryer
+
+  - type: entities
+    title: Machine Input Select
+    show_header_toggle: false
+    entities:
+      - entity: input_select.dishwasher_status
+      - entity: input_select.washing_machine_status
+      - entity: input_select.dryer_status

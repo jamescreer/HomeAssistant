@@ -1,0 +1,20 @@
+####################################################
+#                                                  #
+#                 STATS & DATA                     #
+#                                                  #
+####################################################
+background: var(--background-image)
+title: Stats & Data
+cards:
+  - type: entities
+    title: Days Old
+    show_header_toggle: false
+    entities:
+      - entity: sensor.audrey
+        name: Audrey
+        icon: mdi:baby-face
+  - type: entities
+    title: Plex
+    show_header_toggle: false
+    entities:
+      - entity: sensor.plex

@@ -1,0 +1,86 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: 'Stop Streaming Radio on Chromecast'
+  initial_state: 'true'
+  trigger:
+    platform: state
+    entity_id: input_select.radio_station
+    to: "None"
+  action:
+    service: media_player.turn_off
+    data_template:
+        entity_id: >
+            {% if is_state("input_select.radio_player", "Kitchen") %}
+              media_player.kitchen
+            {%-elif is_state("input_select.radio_player", "Nursery") %}
+              media_player.nursery
+            {%-elif is_state("input_select.radio_player", "Living Room") %}
+              media_player.living_room
+            {% else %}
+              "None"
+            {% endif %}
+
+- alias: 'Start Streaming Radio on Chromecast'
+  initial_state: 'true'
+  trigger:
+    platform: state
+    entity_id: input_select.radio_station
+  action:
+    service: media_player.play_media
+    data_template:
+        entity_id: >
+          {% if is_state("input_select.radio_player", "Kitchen") %}
+              media_player.kitchen
+          {%-elif is_state("input_select.radio_player", "Nursery") %}
+              media_player.nursery
+          {%-elif is_state("input_select.radio_player", "Living Room") %}
+              media_player.living_room
+          {% else %}
+            "None"
+          {% endif %}
+        media_content_id: >
+          {% if is_state("input_select.radio_station", "Triple J") %}
+            http://live-radio01.mediahubaustralia.com/2TJW/aac/Triple J NSW.aac
+          {%-elif is_state("input_select.radio_station", "Double J") %}
+            http://live-radio01.mediahubaustralia.com/DJDW/aac/Double J NSW.aac
+          {%-elif is_state("input_select.radio_station", "Nova 100") %}
+            http://streaming.novaentertainment.com.au/nova100
+          {%-elif is_state("input_select.radio_station", "SmoothFM") %}
+            http://streaming.novaentertainment.com.au/smooth915
+          {%-elif is_state("input_select.radio_station", "SBS Chill") %}
+            http://shoutcast.sbs.com.au/SBSChill
+          {% else %}
+            "None"
+          {% endif %}
+        media_content_type: 'audio/mp4'
+
+- alias: 'Change volume google'
+  initial_state: 'true'
+  trigger:
+    platform: state
+    entity_id: input_number.google_volume
+  action:
+    service: media_player.volume_set
+    data_template:
+        entity_id: >
+          {% if is_state("input_select.radio_player", "Kitchen") %}
+            media_player.kitchen
+          {% elif is_state("input_select.radio_player", "Nursery") %}
+            media_player.nursery
+          {% elif is_state("input_select.radio_player", "Living Room") %}
+            media_player.living_room
+          {% else %}
+            "None"
+          {% endif %}
+        volume_level: "{{ states.input_number.google_volume.state | float / 10 }}"
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

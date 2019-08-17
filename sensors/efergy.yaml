@@ -1,0 +1,22 @@
+#https://home-assistant.io/components/sensor/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/efergy
+- platform: efergy
+  app_token: !secret efergy
+  utc_offset: 400
+  monitored_variables:
+   - type: instant_readings
+   - type: amount
+     period: day
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

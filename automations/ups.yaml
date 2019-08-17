@@ -1,0 +1,70 @@
+#https://www.home-assistant.io/docs/automation/
+#https://github.com/SilvrrGIT/HomeAssistant/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: 'Power Outage Office'
+  initial_state: true
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.ups_input_voltage
+      below: 220
+  action:
+    - service: notify.james
+      data:
+        title: "Power Outage - Office"
+        message: "The power is out and network devices are running off the UPS"
+    - service: homeassistant.turn_on
+      entity_id: automation.power_restored_office
+
+- alias: 'Power Restored Office'
+  initial_state: false
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.ups_input_voltage
+      above: 220
+  action:
+    - service: notify.james
+      data:
+        title: "Power Restored - Office"
+        message: "The power is Restored"
+    - service: homeassistant.turn_off
+      entity_id: automation.power_restored_office
+
+- alias: 'Power Outage Garage'
+  initial_state: true
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.garage_ups_input_voltage
+      below: 220
+  action:
+    - service: notify.james
+      data:
+        title: "Power Outage - Garage"
+        message: "The power is out and network devices are running off the UPS"
+    - service: homeassistant.turn_on
+      entity_id: automation.power_restored_garage
+
+- alias: 'Power Restored Garage'
+  initial_state: false
+  trigger:
+    - platform: numeric_state
+      entity_id: sensor.garage_ups_input_voltage
+      above: 220
+  action:
+    - service: notify.james
+      data:
+        title: "Power Restored - Garage"
+        message: "The power is Restored"
+    - service: homeassistant.turn_off
+      entity_id: automation.power_restored_garage
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

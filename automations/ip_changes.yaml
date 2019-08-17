@@ -1,0 +1,23 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: 'IP Changes'
+  initial_state: 'true'
+  trigger:
+    platform: state
+    entity_id: sensor.myip
+  action:
+    service: notify.james
+    data_template:
+      message: 'IP changed from {{ trigger.from_state.state }} to {{ trigger.to_state.state }}'
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

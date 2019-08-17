@@ -1,0 +1,95 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: 'Bin Night (Green & Yellow)'
+  initial_state: 'true'
+  trigger:
+  - at: '17:00:00'
+    platform: time
+  - at: '18:00:00'
+    platform: time
+  - at: '19:00:00'
+    platform: time
+  - at: '20:00:00'
+    platform: time
+  - at: '21:00:00'
+    platform: time
+  condition:
+  - below: '2'
+    above: '0'
+    condition: numeric_state
+    entity_id: sensor.days_until_next_bin_collection
+  - condition: state
+    entity_id: sensor.bin_collection_type
+    state: 'Organics & Recycling'
+  action:
+  - data:
+      brightness: '204'
+      color_name: green
+      cycles: '3'
+      entity_id: light.living_room_1
+      mode: blink
+    service: light.lifx_effect_pulse
+  - delay: '2'
+  - data:
+      brightness: '204'
+      color_name: yellow
+      cycles: '3'
+      entity_id: light.living_room_1
+      mode: blink
+    service: light.lifx_effect_pulse
+  - service: tts.google_translate_say
+    entity_id: media_player.living_room
+    data:
+      message: 'James, dont forget to put out the yellow-lidded recycling bin and the green-lidded organics bin tonight'
+
+- alias: 'Bin Night (Green & Red)'
+  initial_state: 'true'
+  trigger:
+  - at: '18:00:00'
+    platform: time
+  - at: '19:00:00'
+    platform: time
+  - at: '20:00:00'
+    platform: time
+  - at: '21:00:00'
+    platform: time
+  condition:
+  - below: '2'
+    above: '0'
+    condition: numeric_state
+    entity_id: sensor.days_until_next_bin_collection
+  - condition: state
+    entity_id: sensor.bin_collection_type
+    state: 'Organics & Landfill'
+  action:
+  - data:
+      brightness: '204'
+      color_name: green
+      cycles: '3'
+      entity_id: light.living_room_1
+      mode: blink
+    service: light.lifx_effect_pulse
+  - delay: '2'
+  - data:
+      brightness: '204'
+      color_name: red
+      cycles: '3'
+      entity_id: light.living_room_1
+      mode: blink
+    service: light.lifx_effect_pulse
+  - service: tts.google_translate_say
+    entity_id: media_player.living_room
+    data:
+      message: 'James, dont forget to put out the red-lidded garbage bin and the green-lidded organics bin tonight'
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

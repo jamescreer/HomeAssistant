@@ -1,0 +1,21 @@
+#https://home-assistant.io/components/sensor/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/netatmo
+  - platform: netatmo
+    station: Glenmore Park
+    modules:
+     - Outdoors
+     - Rain
+     - Indoors
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

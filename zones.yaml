@@ -1,0 +1,28 @@
+#https://home-assistant.io/components/zone/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+  - name: James Work
+    latitude: !secret james_work_latitude
+    longitude: !secret james_work_longitude
+    radius: 350
+
+  - name: Sarah Work
+    latitude: !secret sarah_work_latitude
+    longitude: !secret sarah_work_longitude
+    radius: 350
+
+  - name: Home
+    latitude: !secret latitude
+    longitude: !secret longitude
+    radius: 750
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

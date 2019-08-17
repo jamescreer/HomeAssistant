@@ -1,0 +1,225 @@
+########################################
+#                                      #
+#            DEVICE STATUS             #
+#                                      #
+########################################
+background: var(--background-image)
+title: Device Status
+cards:
+#  - type: entities
+#    show_header_toggle: false
+#    title: Phone Status
+#    entities:
+#      - type: section
+#        label: James' Phone Status
+#      - entity: device_tracker.james
+#        name: Location
+#      - entity: sensor.jc_iphone_battery_level
+#        name: Battery
+#      - entity: sensor.jc_iphone_battery_state
+#        name: Charging?
+#      - entity: device_tracker.james_bluetooth
+#        name: Bluetooth
+#      - type: section
+#        label: Sarah's Phone Status
+#      - entity: device_tracker.sarah_phone
+#        name: Location
+#      - entity: sensor.battery_iphone
+#        name: Battery
+#      - entity: device_tracker.sarah_bluetooth
+#        name: Bluetooth
+  - type: custom:vertical-stack-in-card
+    cards:
+      - type: entities
+        show_header_toggle: false
+        title: Office UPS
+        entities:
+          - entity: sensor.ups_status
+            name: State
+            icon: mdi:flash-circle
+          - entity: sensor.ups_input_voltage
+          - entity: sensor.ups_battery_voltage
+          - entity: sensor.ups_output_voltage
+          - entity: sensor.ups_battery_charge
+            icon: mdi:battery-charging
+          - entity: sensor.ups_load
+            icon: mdi:percent
+          - entity: sensor.ups_battery_runtime
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.ups_approx_wattage
+            name: Load
+            icon: mdi:gauge
+            hours_to_show: 48
+            points_per_hour: 0.25
+
+  - type: custom:vertical-stack-in-card
+    cards:
+      - type: entities
+        show_header_toggle: false
+        title: Garage UPS
+        entities:
+          - entity: sensor.garage_ups_status
+            name: State
+            icon: mdi:flash-circle
+          - entity: sensor.garage_ups_input_voltage
+          - entity: sensor.garage_ups_battery_voltage
+          - entity: sensor.garage_ups_output_voltage
+          - entity: sensor.garage_ups_battery_charge
+            icon: mdi:battery-charging
+          - entity: sensor.garage_ups_load
+            icon: mdi:percent
+          - entity: sensor.garage_ups_battery_runtime
+          - type: custom:mini-graph-card
+            entities:
+              - entity: sensor.garage_ups_approx_wattage
+            name: Load
+            icon: mdi:gauge
+            hours_to_show: 48
+            points_per_hour: 0.25
+
+  - type: custom:vertical-stack-in-card
+    title: Network
+    cards:
+      - type: custom:mini-graph-card
+        entities:
+          - entity: sensor.speedtest_download
+          - entity: sensor.speedtest_upload
+        icon: mdi:wan
+        hours_to_show: 48
+        points_per_hour: 0.25
+      - type: entities
+        show_header_toggle: false
+        entities:
+          - entity: sensor.speedtest_ping
+
+  - type: custom:vertical-stack-in-card
+    title: Synology NAS
+    cards:
+      - type: glance
+        columns: 3
+        entities:
+          - entity: sensor.load_1m
+            icon: mdi:speedometer
+          - entity: sensor.load_5m
+            icon: mdi:speedometer
+          - entity: sensor.load_15m
+            icon: mdi:speedometer
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.processor_use
+            name: Processor
+            hours_to_show: 24
+            graph: line
+            detail: 1
+          - type: sensor
+            entity: sensor.memory_use_percent
+            name: Memory
+            hours_to_show: 24
+            graph: line
+            detail: 1
+
+  - type: entities
+    title: Network Devices
+    show_header_toggle: false
+    entities:
+          - entity: binary_sensor.modem
+          - entity: binary_sensor.ubiquiti_usg
+          - entity: binary_sensor.ubiquiti_ap
+          - entity: binary_sensor.remote_ui
+          - entity: binary_sensor.pi_hole
+          - entity: binary_sensor.nas
+          - entity: binary_sensor.pc
+          - entity: binary_sensor.arlo
+          - entity: binary_sensor.sannce
+          - entity: sensor.macbook
+          - entity: sensor.piaware
+          - entity: sensor.ps4
+          - entity: sensor.vacuum
+
+
+  - type: entities
+    title: Home Automation Devices
+    show_header_toggle: false
+    entities:
+      - entity: sensor.rm3_living_room
+      - entity: sensor.rm3_bedroom
+
+  - type: entities
+    title: Battery Status
+    show_header_toggle: false
+    entities:
+      - entity: sensor.netatmo_outdoors_battery_percent
+        icon: mdi:battery-50
+        name: Netatmo Outdoors Battery
+      - entity: sensor.netatmo_rain_battery_percent
+        icon: mdi:battery-50
+        name: Netatmo Rain Gauge Battery
+      - entity: sensor.battery_level_nursery
+        name: Arlo Nursery
+        icon: mdi:battery-50
+      - entity: sensor.battery_level_kitchen
+        icon: mdi:battery-50
+        name: Arlo Kitchen Battery
+      - entity: sensor.battery_level_garage
+        icon: mdi:battery-50
+        name: Arlo Garage Battery
+      - entity: sensor.battery_level_front_room
+        icon: mdi:battery-50
+        name: Arlo Front Room Battery
+      - entity: sensor.ring_front_door_battery
+        icon: mdi:battery-50
+        name: Ring Front Door Battery
+      - entity: sensor.front_door_battery_status
+        icon: mdi:battery-50
+        name: ZWave Front Door Battery
+
+  - type: entities
+    title: Baby Turtle Tank
+    show_header_toggle: false
+    entities:
+      - entity: sensor.baby_turtle_tank_watts
+      - entity: sensor.baby_turtle_tank_volts
+      - entity: sensor.baby_turtle_tank_amps
+      - entity: sensor.baby_turtle_tank_today_kwh
+      - entity: sensor.baby_turtle_tank_total_kwh
+
+  - type: entities
+    title: Dishwasher
+    show_header_toggle: false
+    entities:
+      - entity: sensor.dishwasher_status
+      - entity: sensor.dishwasher_watts
+      - entity: sensor.dishwasher_volts
+      - entity: sensor.dishwasher_amps
+      - entity: sensor.dishwasher_today_kwh
+      - entity: sensor.dishwasher_total_kwh
+
+  - type: entities
+    title: Dryer
+    show_header_toggle: false
+    entities:
+      - entity: sensor.dryer_status
+      - entity: sensor.dryer_watts
+      - entity: sensor.dryer_volts
+      - entity: sensor.dryer_amps
+      - entity: sensor.dryer_today_kwh
+      - entity: sensor.dryer_total_kwh
+
+  - type: entities
+    title: Washing Machine
+    show_header_toggle: false
+    entities:
+      - entity: sensor.washing_machine_status
+      - entity: sensor.washing_machine_watts
+      - entity: sensor.washing_machine_volts
+      - entity: sensor.washing_machine_amps
+      - entity: sensor.washing_machine_today_kwh
+      - entity: sensor.washing_machine_total_kwh
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

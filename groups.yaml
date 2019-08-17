@@ -1,0 +1,36 @@
+#https://www.home-assistant.io/components/group/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+  home_presence:
+    - device_tracker.james_phone
+    - device_tracker.iphone_james
+    - device_tracker.sarah_phone
+    - device_tracker.iphone_sarah
+
+  james_home_presence:
+    - device_tracker.james_phone
+    - device_tracker.iphone_james
+    - device_tracker.james_bluetooth
+
+  sarah_home_presence:
+    - device_tracker.sarah_phone
+    - device_tracker.iphone_sarah
+    - device_tracker.sarah_bluetooth
+
+  main_lights:
+    - light.living_room_1
+    - light.living_room_2
+    - light.front_room_1
+    - light.front_room_2
+
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

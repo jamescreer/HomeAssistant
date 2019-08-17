@@ -1,0 +1,22 @@
+#https://home-assistant.io/components/input_number/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+  google_volume:
+    name: Volume
+    initial: 3
+    min: 0
+    max: 10
+    step: 0.5
+    mode: slider
+    icon: mdi:volume-medium
+    
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

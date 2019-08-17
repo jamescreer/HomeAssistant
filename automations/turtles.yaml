@@ -1,0 +1,46 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: 'Sunrise +0:30'
+  initial_state: 'true'
+  trigger:
+    platform: sun
+    event: sunrise
+    offset: '+00:30:00'
+  action:
+  - service: switch.turn_on
+    entity_id: switch.eastern_long_neck
+  - service: switch.turn_on
+    entity_id: switch.eastern_short_neck
+  - service: switch.turn_on
+    entity_id: switch.baby_turtle_tank
+  - service: notify.james
+    data_template:
+      message: "The Turtle tank lights have been turned on. Today's Forecast: {{ states('sensor.penrith_forecast_summary') }}"
+
+- alias: 'Tank Lights Off - Sunset'
+  initial_state: 'true'
+  trigger:
+    platform: sun
+    event: sunset
+  action:
+  - service: switch.turn_off
+    entity_id: switch.eastern_long_neck
+  - service: switch.turn_off
+    entity_id: switch.baby_turtle_tank
+  - service: switch.turn_off
+    entity_id: switch.eastern_short_neck
+  - service: notify.james
+    data_template:
+      message: "The Turtle tank lights have been turned off. Tomorrow's Forecast: {{ states('sensor.penrith_forecast_summary') }}"
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

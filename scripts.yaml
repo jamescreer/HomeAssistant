@@ -1,0 +1,59 @@
+#https://home-assistant.io/components/script/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+  main_lights_on:
+    alias: Lights On
+    sequence:
+      - service: light.turn_on
+        entity_id: group.main_lights
+        data:
+          brightness: 255
+          rgb_color: [255, 255, 255]
+          transition: 10
+
+  main_lights_off:
+    alias: Lights Off
+    sequence:
+      - service: light.turn_off
+        entity_id: group.main_lights
+        data:
+          transition: 10
+
+  volumeup:
+    alias: Volume Up
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: switch.tv_volume_up
+      - service: homeassistant.turn_on
+        entity_id: switch.tv_volume_up
+      - service: homeassistant.turn_on
+        entity_id: switch.tv_volume_up
+      - service: homeassistant.turn_on
+        entity_id: switch.tv_volume_up
+      - service: homeassistant.turn_on
+        entity_id: switch.tv_volume_up
+
+  volumedown:
+    alias: Volume Down
+    sequence:
+      - service: homeassistant.turn_on
+        entity_id: switch.tv_volume_down
+      - service: homeassistant.turn_on
+        entity_id: switch.tv_volume_down
+      - service: homeassistant.turn_on
+        entity_id: switch.tv_volume_down
+      - service: homeassistant.turn_on
+        entity_id: switch.tv_volume_down
+      - service: homeassistant.turn_on
+        entity_id: switch.tv_volume_down
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

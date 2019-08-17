@@ -1,0 +1,24 @@
+#https://home-assistant.io/components/sensor/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/command_line/
+  - platform: command_line
+    name: Next Bin Collection
+    command: "python3 /config/scripts/waste_collection_date.py"
+  - platform: command_line
+    name: Days Until Next Bin Collection
+    command: "python3 /config/scripts/waste_collection_days.py"
+  - platform: command_line
+    name: Bin Collection Type
+    command: "python3 /config/scripts/waste_collection_type.py"
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

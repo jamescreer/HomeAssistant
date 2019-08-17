@@ -1,0 +1,44 @@
+#https://www.home-assistant.io/components/recorder/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+  purge_interval: 1
+  purge_keep_days: 2
+  include:
+    domains:
+      - automation
+      - switch
+      - media_player
+      - script
+    entities:
+      - sensor.energy_usage
+      - sensor.solar_generation
+      - sensor.speedtest_download
+      - sensor.speedtest_upload
+      - sensor.garage_ups_approx_wattage
+      - sensor.ups_approx_wattage
+      - sensor.dishwasher_status
+      - sensor.washing_machine_status
+      - sensor.dishwasher_watts
+      - sensor.dryer_watts
+      - sensor.washing_machine_watts
+      - sensor.processor_use
+      - sensor.memory_use_percent
+      - sensor.netatmo_indoors_temperature
+      - sensor.temperature_nursery
+      - sensor.bathroom_sensor_temperature
+      - sensor.garage_sensor_temperature
+      - sensor.laundry_sensor_temperature
+      - sensor.back_door_temp
+      - sensor.sliding_door_temp
+      - sensor.netatmo_outdoors_temperature
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

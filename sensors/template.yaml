@@ -1,0 +1,262 @@
+#https://home-assistant.io/components/sensor/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/sensor.template/
+  - platform: template
+    sensors:
+
+      front_door_status:
+        value_template: "{%if states.sensor.front_door_sensor.state == 'on' %}Open{%elif states.sensor.front_door_sensor.state == 'off' %}Closed{% endif %}"
+
+      sliding_door_status:
+        value_template: "{%if states.sensor.sliding_door_sensor.state == '22' %}Open{%elif states.sensor.sliding_door_sensor.state == '23' %}Closed{% endif %}"
+
+      back_door_status:
+        value_template: "{%if states.sensor.back_door_sensor.state == '22' %}Open{%elif states.sensor.back_door_sensor.state == '23' %}Closed{% endif %}"
+
+      audrey:
+        value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("2019-07-05 00:00:00" , "%Y-%m-%dT%H:%M:%S")) )/ (3600*24)) | round(0) }}'
+        unit_of_measurement: 'Days'
+
+      ups_approx_wattage:
+        value_template:  '{{states("sensor.ups_load")|int*9}}'
+        unit_of_measurement: 'W'
+
+      garage_ups_approx_wattage:
+        value_template:  '{{states("sensor.garage_ups_load")|int*9}}'
+        unit_of_measurement: 'W'
+
+      solar_generation:
+        friendly_name: "Solar Generation"
+        unit_of_measurement: 'W'
+        value_template: "{{ state_attr('sensor.pvoutput', 'power_generation')|float - 19 }}"
+
+      dishwasher_status:
+        value_template: '{{ states.input_select.dishwasher_status.state}}'
+        friendly_name: 'Dishwasher Status'
+
+      washing_machine_status:
+        value_template: '{{ states.input_select.washing_machine_status.state}}'
+        friendly_name: 'Washing Machine Status'
+
+      dryer_status:
+        value_template: '{{ states.input_select.dryer_status.state}}'
+        friendly_name: 'Dryer Status'
+
+      sunset:
+        value_template: '{% set timestamp = as_timestamp(states.sun.sun.attributes.next_setting) | timestamp_custom("%I:%M") %} {{ timestamp.lstrip("0") }}'
+        unit_of_measurement: 'PM'
+
+      sunrise:
+        value_template: '{% set timestamp = as_timestamp(states.sun.sun.attributes.next_rising) | timestamp_custom("%I:%M") %} {{ timestamp.lstrip("0") }}'
+        unit_of_measurement: 'AM'
+
+      ps4:
+        friendly_name: 'Playstation 4'
+        value_template: "{{ 'Connected' if is_state('device_tracker.ps4', 'home') else 'Disconnected' }}"
+        icon_template: mdi:playstation
+
+      macbook:
+        friendly_name: 'MacBook Pro'
+        value_template: "{{ 'Connected' if is_state('device_tracker.macbook_pro', 'home') else 'Disconnected' }}"
+        icon_template: mdi:laptop-mac
+
+      vacuum:
+        friendly_name: 'Vacuum'
+        value_template: "{{ 'Connected' if is_state('device_tracker.vacuum', 'home') else 'Disconnected' }}"
+        icon_template: mdi:broom
+
+      rm3_bedroom:
+        friendly_name: 'Bedroom IR'
+        value_template: "{{ 'Connected' if is_state('device_tracker.rm3_bedroom', 'home') else 'Disconnected' }}"
+        icon_template: mdi:remote
+
+      rm3_living_room:
+        friendly_name: 'Living Room IR'
+        value_template: "{{ 'Connected' if is_state('device_tracker.rm3_living_room', 'home') else 'Disconnected' }}"
+        icon_template: mdi:remote
+
+      piaware:
+        friendly_name: 'PiAware'
+        value_template: "{{ 'Connected' if is_state('device_tracker.piaware', 'home') else 'Disconnected' }}"
+        icon_template: mdi:airplane
+
+      baby_turtle_tank_amps:
+        friendly_name_template: "{{ states.switch.baby_turtle_tank.name}} Current"
+        value_template: '{{ states.switch.baby_turtle_tank.attributes["current_a"] | float }}'
+        unit_of_measurement: 'A'
+      baby_turtle_tank_watts:
+        friendly_name_template: "{{ states.switch.baby_turtle_tank.name}} Current Consumption"
+        value_template: '{{ states.switch.baby_turtle_tank.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      baby_turtle_tank_total_kwh:
+        friendly_name_template: "{{ states.switch.baby_turtle_tank.name}} Total Consumption"
+        value_template: '{{ states.switch.baby_turtle_tank.attributes["total_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+      baby_turtle_tank_volts:
+        friendly_name_template: "{{ states.switch.baby_turtle_tank.name}} Voltage"
+        value_template: '{{ states.switch.baby_turtle_tank.attributes["voltage"] | float }}'
+        unit_of_measurement: 'V'
+      baby_turtle_tank_today_kwh:
+        friendly_name_template: "{{ states.switch.baby_turtle_tank.name}} Today's Consumption"
+        value_template: '{{ states.switch.baby_turtle_tank.attributes["today_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+
+      dishwasher_amps:
+        friendly_name_template: "{{ states.switch.dishwasher.name}} Current"
+        value_template: '{{ states.switch.dishwasher.attributes["current_a"] | float }}'
+        unit_of_measurement: 'A'
+      dishwasher_watts:
+        friendly_name_template: "{{ states.switch.dishwasher.name}} Current Consumption"
+        value_template: '{{ states.switch.dishwasher.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      dishwasher_total_kwh:
+        friendly_name_template: "{{ states.switch.dishwasher.name}} Total Consumption"
+        value_template: '{{ states.switch.dishwasher.attributes["total_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+      dishwasher_volts:
+        friendly_name_template: "{{ states.switch.dishwasher.name}} Voltage"
+        value_template: '{{ states.switch.dishwasher.attributes["voltage"] | float }}'
+        unit_of_measurement: 'V'
+      dishwasher_today_kwh:
+        friendly_name_template: "{{ states.switch.dishwasher.name}} Today's Consumption"
+        value_template: '{{ states.switch.dishwasher.attributes["today_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+
+      washing_machine_amps:
+        friendly_name_template: "{{ states.switch.washing_machine.name}} Current"
+        value_template: '{{ states.switch.washing_machine.attributes["current_a"] | float }}'
+        unit_of_measurement: 'A'
+      washing_machine_watts:
+        friendly_name_template: "{{ states.switch.washing_machine.name}} Current Consumption"
+        value_template: '{{ states.switch.washing_machine.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      washing_machine_total_kwh:
+        friendly_name_template: "{{ states.switch.washing_machine.name}} Total Consumption"
+        value_template: '{{ states.switch.washing_machine.attributes["total_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+      washing_machine_volts:
+        friendly_name_template: "{{ states.switch.washing_machine.name}} Voltage"
+        value_template: '{{ states.switch.washing_machine.attributes["voltage"] | float }}'
+        unit_of_measurement: 'V'
+      washing_machine_today_kwh:
+        friendly_name_template: "{{ states.switch.washing_machine.name}} Today's Consumption"
+        value_template: '{{ states.switch.washing_machine.attributes["today_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+
+      dryer_amps:
+        friendly_name_template: "{{ states.switch.dryer.name}} Current"
+        value_template: '{{ states.switch.dryer.attributes["current_a"] | float }}'
+        unit_of_measurement: 'A'
+      dryer_watts:
+        friendly_name_template: "{{ states.switch.dryer.name}} Current Consumption"
+        value_template: '{{ states.switch.dryer.attributes["current_power_w"] | float }}'
+        unit_of_measurement: 'W'
+      dryer_total_kwh:
+        friendly_name_template: "{{ states.switch.dryer.name}} Total Consumption"
+        value_template: '{{ states.switch.dryer.attributes["total_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+      dryer_volts:
+        friendly_name_template: "{{ states.switch.dryer.name}} Voltage"
+        value_template: '{{ states.switch.dryer.attributes["voltage"] | float }}'
+        unit_of_measurement: 'V'
+      dryer_today_kwh:
+        friendly_name_template: "{{ states.switch.dryer.name}} Today's Consumption"
+        value_template: '{{ states.switch.dryer.attributes["today_energy_kwh"] | float }}'
+        unit_of_measurement: 'kWh'
+
+#Thanks to @ccostan for the code here.  Some Intresting HA stats
+      sensor_count:
+        friendly_name: 'Number of Sensors'
+        value_template: >
+          {%- set domains = ['sensor'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      automation_count:
+        friendly_name: 'Number of Automations'
+        value_template: >
+          {%- set domains = ['automation'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      script_count:
+        friendly_name: 'Number of Scripts'
+        value_template: >
+          {%- set domains = ['script'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      switch_count:
+        friendly_name: 'Number of Switches'
+        value_template: >
+          {%- set domains = ['switch'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      binary_sensor_count:
+        friendly_name: 'Number of Binary Sensors'
+        value_template: >
+          {%- set domains = ['binary_sensor'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      lights_count:
+        friendly_name: 'Number of Lights'
+        value_template: >
+          {%- set domains = ['light'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+      tracker_count:
+        friendly_name: 'Number of Devices'
+        value_template: >
+          {%- set domains = ['device_tracker'] -%}
+          {%- for domain in domains -%}
+            {%- for item in states[domain] -%}
+              {% if loop.first %}
+                {{loop.length}}
+              {% endif %}
+            {%- endfor -%}
+          {%- endfor -%}
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################

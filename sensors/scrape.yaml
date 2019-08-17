@@ -1,0 +1,23 @@
+#https://home-assistant.io/components/sensor/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/scrape
+  - platform: scrape
+    resource: http://www.bom.gov.au/nsw/forecasts/penrith.shtml
+    name: Penrith Forecast Summary
+    select: ".main .forecast p"
+    value_template: '{{ value | truncate(255) }}'
+    scan_interval: 3600
+    headers:
+      User-Agent: Mozilla/5.0
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################
