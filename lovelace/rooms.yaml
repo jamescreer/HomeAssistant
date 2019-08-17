@@ -34,8 +34,6 @@ cards:
     entities:
       - entity: sensor.netatmo_indoors_temperature
       - entity: sensor.temperature_nursery
-      - entity: sensor.garage_sensor_temperature
-      - entity: sensor.laundry_sensor_temperature
       - entity: sensor.back_door_temp
       - entity: sensor.bathroom_sensor_temperature
       - entity: sensor.sliding_door_temp
@@ -43,6 +41,8 @@ cards:
     icon: mdi:thermometer
     hours_to_show: 48
     points_per_hour: 0.25
+    show:
+      legend: false
 
   - type: glance
     title: James Location
