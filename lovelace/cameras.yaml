@@ -2,11 +2,6 @@ background: var(--background-image)
 title: Cameras
 icon: mdi:camera
 cards:
-  - type: vertical-stack
-    cards:
-     - type: picture-entity
-       entity: camera.front_door
-       camera_view: live
   - type: entities
     title: Arlo
     show_header_toggle: false
