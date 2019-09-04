@@ -101,3 +101,15 @@ cards:
     show_header_toggle: false
     entities:
       - entity: automation.turn_off_living_room_aircon
+
+  - type: entities
+    title: Bathroom
+    show_header_toggle: false
+    entities:
+      - entity: automation.bathroom_motion
+
+  - type: entities
+    title: Doorbell
+    show_header_toggle: false
+    entities:
+     - entity: automation.doorbell_ring
