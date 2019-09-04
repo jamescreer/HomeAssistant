@@ -1,0 +1,30 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: 'Doorbell Ring'
+  initial_state: 'true'
+  trigger:
+      platform: state
+      entity_id: binary_sensor.ring_front_door_ding
+      from: 'off'
+      to: 'on'
+  action:
+  - service:  media_player.play_media
+    data:
+      entity_id: media_player.kitchen
+      media_content_id: !secret sound_doorbell
+      media_content_type: audio/mp3
+  - service: notify.james
+    data_template:
+      message: "There is someone at the door!"
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################
