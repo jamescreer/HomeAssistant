@@ -8,18 +8,18 @@
 
   home_presence:
     - device_tracker.james_phone
-    - device_tracker.iphone_james
+    - device_tracker.iphone_james_2
     - device_tracker.sarah_phone
-    - device_tracker.iphone_sarah
+    - device_tracker.iphone_sarah_2
 
   james_home_presence:
     - device_tracker.james_phone
-    - device_tracker.iphone_james
+    - device_tracker.iphone_james_2
     - device_tracker.james_bluetooth
 
   sarah_home_presence:
     - device_tracker.sarah_phone
-    - device_tracker.iphone_sarah
+    - device_tracker.iphone_sarah_2
     - device_tracker.sarah_bluetooth
 
   main_lights:
