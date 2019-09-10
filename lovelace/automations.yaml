@@ -10,8 +10,7 @@ cards:
     title: Lights
     show_header_toggle: false
     entities:
-      - entity: automation.21_00_lights_off
-        name: Lights off at 21:00
+      - entity: automation.22_00_lights_off
         icon: mdi:hotel
       - entity: automation.sunset_lights_on_1h
       - entity: automation.home_lights_on
