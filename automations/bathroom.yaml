@@ -7,7 +7,7 @@
 ########################################
 
 - alias: 'Bathroom Motion'
-  initial_state: 'true'
+  initial_state: 'false'
   trigger:
       platform: state
       entity_id: binary_sensor.bathroom_sensor_motion
