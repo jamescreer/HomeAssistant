@@ -6,28 +6,6 @@
 background: var(--background-image)
 title: Device Status
 cards:
-#  - type: entities
-#    show_header_toggle: false
-#    title: Phone Status
-#    entities:
-#      - type: section
-#        label: James' Phone Status
-#      - entity: device_tracker.james
-#        name: Location
-#      - entity: sensor.jc_iphone_battery_level
-#        name: Battery
-#      - entity: sensor.jc_iphone_battery_state
-#        name: Charging?
-#      - entity: device_tracker.james_bluetooth
-#        name: Bluetooth
-#      - type: section
-#        label: Sarah's Phone Status
-#      - entity: device_tracker.sarah_phone
-#        name: Location
-#      - entity: sensor.battery_iphone
-#        name: Battery
-#      - entity: device_tracker.sarah_bluetooth
-#        name: Bluetooth
   - type: custom:vertical-stack-in-card
     cards:
       - type: entities
