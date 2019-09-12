@@ -32,6 +32,7 @@ cards:
       - entity: automation.home_assistant_started
       - entity: automation.home_assistant_stopped
       - entity: automation.disk_use_alarm
+      - entity: automation.update_template_sensors
 
   - type: entities
     title: Bins
