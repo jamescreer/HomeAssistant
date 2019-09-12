@@ -10,46 +10,38 @@
   initial_state: 'true'
   trigger:
     platform: zone
-    entity_id: person.james_creer, person.sarah_creer
+    entity_id: device_tracker.james_phone, device_tracker.sarah_phone
     zone: zone.home
-    # Event is either enter or leave
-    event: enter  # or "leave"
+    event: enter
   action:
     service: light.turn_on
     entity_id: group.main_lights
   condition:
     condition: time
-    after: '20:00:00'
-    before: '23:00:00'
+    after: '22:00:00'
+    before: '23:59:00'
 
 - alias: 'Sarah Home'
-  initial_state: 'true'
   trigger:
-    platform: zone
-    entity_id: device_tracker.sarah_phone
-    zone: zone.home
-    event: enter  # or "leave"
+    - platform: zone
+      entity_id: device_tracker.sarah_phone
+      zone: zone.home
+      event: enter
   action:
-    service: notify.james
+  - service: notify.james
     data_template:
-      message: 'Sarah has arrived home'
-
-- alias: 'Sarah Home - Announcement'
-  trigger:
-    - platform: state
-      entity_id:  device_tracker.iphone_sarah_2
-      to: Home
-      for:
-        minutes: 2
-  action:
-  - service:  media_player.play_media
+      message: "Sarah has arrived home"
+  - delay: '00:05:00'
+  - service: tts.google_translate_say
+    entity_id: media_player.kitchen
+    data:
+      message: 'Welcome home Sarah'
+  - delay: '00:00:05'
+  - service: media_player.play_media
     data:
       entity_id: media_player.kitchen
       media_content_id: !secret sound_sarah_arrival
       media_content_type: audio/mp3
-  - service: notify.james
-    data_template:
-      message: "Sarah is home!"
 
 - alias: 'James Home'
   initial_state: 'true'
@@ -57,11 +49,16 @@
     platform: zone
     entity_id: device_tracker.james_phone
     zone: zone.home
-    event: enter  # or "leave"
+    event: enter
   action:
-    service: notify.sarah
+  - service: notify.sarah
     data_template:
       message: 'James has arrived home'
+  - delay: '00:05:00'
+  - service: tts.google_translate_say
+    entity_id: media_player.kitchen
+    data:
+      message: 'Welcome home James'
 
 ########################################
 #                                      #
