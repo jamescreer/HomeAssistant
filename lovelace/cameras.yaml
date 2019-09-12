@@ -3,7 +3,22 @@ title: Cameras
 icon: mdi:camera
 cards:
   - type: entities
+    title: Ring
+    show_header_toggle: false
+    entities:
+      - entity: camera.front_door
+      
+  - type: entities
     title: Arlo
+    show_header_toggle: false
+    entities:
+      - entity: camera.front_room
+      - entity: camera.garage
+      - entity: camera.kitchen
+      - entity: camera.nursery
+
+  - type: entities
+    title: Arlo Stats
     show_header_toggle: false
     entities:
       - entity: sensor.arlo_cameras
