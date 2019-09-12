@@ -71,7 +71,6 @@ cards:
     show_header_toggle: false
     entities:
       - entity: switch.eastern_long_neck
-      - entity: switch.eastern_short_neck
       - entity: switch.baby_turtle_tank
       - entity: switch.dishwasher
       - entity: switch.washing_machine
