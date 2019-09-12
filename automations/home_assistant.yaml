@@ -28,22 +28,22 @@
           title: "Home Assistant Stopped"
           message: "Home Assistant Has Stopped"
 
-#  - alias: Update Template Sensors
-#    initial_state: 'true'
-#    trigger:
-#        platform: time_pattern
-#        minutes: '/10'
-#    action:
-#      - service: homeassistant.update_entity
-#        entity_id:
-#          - sensor.duedate
-#          - sensor.tracker_count
-#          - sensor.lights_count
-#          - sensor.binary_sensor_count
-#          - sensor.switch_count
-#          - sensor.automation_count
-#          - sensor.script_count
-#          - sensor.sensor_count
+  - alias: Update Template Sensors
+    initial_state: 'true'
+    trigger:
+        platform: time_pattern
+        minutes: '/60'
+    action:
+      - service: homeassistant.update_entity
+        entity_id:
+          - sensor.audrey
+          - sensor.tracker_count
+          - sensor.lights_count
+          - sensor.binary_sensor_count
+          - sensor.switch_count
+          - sensor.automation_count
+          - sensor.script_count
+          - sensor.sensor_count
 
   - alias: "Disk Use Alarm"
     initial_state: 'true'
