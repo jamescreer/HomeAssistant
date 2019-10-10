@@ -17,6 +17,7 @@
     data:
       transition: 900
 
+
 - alias: 'Sunset Lights On - 1h'
   initial_state: 'true'
   trigger:
@@ -27,7 +28,8 @@
   - service: light.turn_on
     entity_id: group.main_lights
     data:
-      transition: 900
+      transition: 60
+      brightness: 255
 
 
 ########################################
