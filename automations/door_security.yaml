@@ -1,0 +1,82 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+  - alias: "Interior Garage Door Opened When Away"
+    initial_state: true
+    trigger:
+      platform: state
+      entity_id: sensor.sliding_door_status
+      to: 'Open'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ states('group.james_home_presence') != 'home' }}"
+        - condition: template
+          value_template: "{{ states('group.sarah_home_presence') != 'home' }}"
+    action:
+      - service: notify.james
+        data:
+          title: "Interior Garage Door Opened"
+          message: "The Interior Garage Door was opened and James and Sarah are not home"
+      - service: notify.sarah
+        data:
+          title: "Interior Garage Door Opened"
+          message: "The Interior Garage Door was opened and James and Sarah are not home"
+
+  - alias: "Front Door Opened When Away"
+    initial_state: true
+    trigger:
+      platform: state
+      entity_id: sensor.front_door_status
+      to: 'Open'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ states('group.james_home_presence') != 'home' }}"
+        - condition: template
+          value_template: "{{ states('group.sarah_home_presence') != 'home' }}"
+    action:
+      - service: notify.james
+        data:
+          title: "Front Door Opened"
+          message: "The Front Door was opened and James and Sarah are not home"
+      - service: notify.sarah
+        data:
+          title: "Front Door Opened"
+          message: "The Front Door was opened and James and Sarah are not home"
+
+  - alias: "Back Door Opened When Away"
+    initial_state: true
+    trigger:
+      platform: state
+      entity_id: sensor.back_door_status
+      to: 'Open'
+    condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ states('group.james_home_presence') != 'home' }}"
+        - condition: template
+          value_template: "{{ states('group.sarah_home_presence') != 'home' }}"
+    action:
+      - service: notify.james
+        data:
+          title: "Back Door Opened"
+          message: "The Back Door was opened and James and Sarah are not home"
+      - service: notify.sarah
+        data:
+          title: "Back Door Opened"
+          message: "The Back Door was opened and James and Sarah are not home"
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################
