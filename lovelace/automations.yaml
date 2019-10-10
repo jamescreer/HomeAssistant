@@ -97,6 +97,14 @@ cards:
       - entity: automation.stop_streaming_radio_on_chromecast
 
   - type: entities
+    title: Security
+    show_header_toggle: false
+    entities:
+      - automation.interior_garage_door_opened_when_away
+      - automation.front_door_opened_when_away
+      - automation.back_door_opened_when_away
+
+  - type: entities
     title: Air Conditioners
     show_header_toggle: false
     entities:
