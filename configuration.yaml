@@ -73,6 +73,9 @@ logbook:
 logger:
   default: error
 
+#https://www.home-assistant.io/docs/ecosystem/ios/
+ios:
+
 #https://www.home-assistant.io/lovelace/yaml-mode/
 lovelace:
   mode: yaml
@@ -104,6 +107,10 @@ openuv:
 #https://www.home-assistant.io/components/person/
 person:
 
+#https://www.home-assistant.io/integrations/plex
+plex:
+  host: 192.168.1.2
+
 #https://www.home-assistant.io/components/ring/
 ring:
   username: !secret general_email
@@ -128,7 +135,7 @@ tplink:
     - host: 192.168.1.63
     - host: 192.168.1.64
     - host: 192.168.1.65
-    
+
 #https://www.home-assistant.io/components/tts/
 tts:
   - platform: google_translate
