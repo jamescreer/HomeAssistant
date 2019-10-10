@@ -13,10 +13,10 @@
       front_door_status:
         value_template: "{%if states.sensor.front_door_sensor.state == 'on' %}Open{%elif states.sensor.front_door_sensor.state == 'off' %}Closed{% endif %}"
 
-      sliding_door_status:
+      back_door_status:
         value_template: "{%if states.sensor.sliding_door_sensor.state == '22' %}Open{%elif states.sensor.sliding_door_sensor.state == '23' %}Closed{% endif %}"
 
-      back_door_status:
+      sliding_door_status:
         value_template: "{%if states.sensor.back_door_sensor.state == '22' %}Open{%elif states.sensor.back_door_sensor.state == '23' %}Closed{% endif %}"
 
       audrey:
