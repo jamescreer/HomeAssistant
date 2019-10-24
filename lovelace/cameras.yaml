@@ -1,13 +1,7 @@
 background: var(--background-image)
 title: Cameras
 icon: mdi:camera
-cards:
-  - type: entities
-    title: Ring
-    show_header_toggle: false
-    entities:
-      - entity: camera.front_door
-      
+cards:  
   - type: entities
     title: Arlo
     show_header_toggle: false
