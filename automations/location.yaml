@@ -55,6 +55,10 @@
     data_template:
       message: 'James has arrived home'
   - delay: '00:05:00'
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.kitchen
+      volume_level: '0.20'
   - service: tts.google_translate_say
     entity_id: media_player.kitchen
     data:
