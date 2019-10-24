@@ -6,9 +6,6 @@
 #                                      #
 ########################################
 
-#https://www.home-assistant.io/components/ring/#camera
-  - platform: ring
-
 #https://www.home-assistant.io/components/arlo/#camera
   - platform: arlo
 
