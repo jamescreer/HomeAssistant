@@ -31,6 +31,7 @@ cast:
     - host: 192.168.1.30
     - host: 192.168.1.31
     - host: 192.168.1.32
+    - host: 192.168.1.33
     - host: 192.168.1.35
 
 #https://www.home-assistant.io/components/cloud/
@@ -106,10 +107,6 @@ openuv:
 
 #https://www.home-assistant.io/components/person/
 person:
-
-#https://www.home-assistant.io/integrations/plex
-plex:
-  host: 192.168.1.2
 
 #https://www.home-assistant.io/components/ring/
 ring:
