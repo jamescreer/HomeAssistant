@@ -70,7 +70,7 @@ cards:
       - entity: device_tracker.sarah_phone
         name: GPS
         icon: mdi:cellphone-iphone
-      - entity: device_tracker.iphone_sarah_2
+      - entity: device_tracker.sarah_phone_wifi
         name: WiFi
         icon: mdi:wifi
       - entity: device_tracker.sarah_bluetooth
@@ -114,13 +114,13 @@ cards:
     entity: media_player.kitchen
 
   - type: media-control
-    entity: media_player.living_room
+    entity: media_player.front_room
 
   - type: media-control
     entity: media_player.nursery
 
   - type: media-control
-    entity: media_player.bedroom_tv
+    entity: media_player.front_room_tv
 
   - type: media-control
     entity: media_player.playstation_4
