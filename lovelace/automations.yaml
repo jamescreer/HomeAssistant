@@ -10,9 +10,8 @@ cards:
     title: Lights
     show_header_toggle: false
     entities:
-      - entity: automation.22_00_lights_off
-        icon: mdi:hotel
-      - entity: automation.sunset_lights_on_1h
+      - entity: automation.21_00_lights_off
+      - entity: automation.sunset_lights_on
       - entity: automation.home_lights_on
       - entity: automation.05_45_lights_on
       - entity: automation.everyone_has_left_turn_lights_off
@@ -33,6 +32,7 @@ cards:
       - entity: automation.home_assistant_stopped
       - entity: automation.disk_use_alarm
       - entity: automation.update_template_sensors
+      - entity: automation.new_home_assitant_version
 
   - type: entities
     title: Bins
