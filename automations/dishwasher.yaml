@@ -80,13 +80,13 @@
   trigger:
     - platform: numeric_state
       entity_id: sensor.dishwasher_watts
-      below: 1
+      below: 5
   condition:
     condition: and
     conditions:
       - condition: numeric_state
         entity_id: sensor.dishwasher_watts
-        below: 1
+        below: 5
       - condition: or
         conditions:
         - condition: state
