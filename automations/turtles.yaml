@@ -19,7 +19,13 @@
     entity_id: switch.baby_turtle_tank
   - service: notify.james
     data_template:
-      message: "The Turtle tank lights have been turned on. Today's Forecast: {{ states('sensor.penrith_forecast_summary') }}"
+      message: "The Turtle tank lights have been turned on.
+
+      Backroom Tank: {{ states('switch.eastern_long_neck') }}
+
+      Baby Turtle Tank: {{ states('switch.baby_turtle_tank') }}
+
+      Today's Forecast: {{ states('sensor.penrith_forecast_summary') }}"
 
 - alias: 'Tank Lights Off - Sunset'
   initial_state: 'true'
@@ -33,7 +39,13 @@
     entity_id: switch.baby_turtle_tank
   - service: notify.james
     data_template:
-      message: "The Turtle tank lights have been turned off. Tomorrow's Forecast: {{ states('sensor.penrith_forecast_summary') }}"
+      message: "The Turtle tank lights have been turned off.
+
+      Backroom Tank: {{ states('switch.eastern_long_neck') }}
+
+      Baby Turtle Tank: {{ states('switch.baby_turtle_tank') }}
+
+      Tomorrow's Forecast: {{ states('sensor.penrith_forecast_summary') }}"
 
 ########################################
 #                                      #
