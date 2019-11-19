@@ -9,7 +9,7 @@
   home_presence:
     - device_tracker.james_phone
     - device_tracker.iphone_james_2
-    - device_tracker.sarah_phone
+    - device_tracker.sarah_phone_wifi
     - device_tracker.iphone_sarah_2
 
   james_home_presence:
@@ -19,7 +19,7 @@
 
   sarah_home_presence:
     - device_tracker.sarah_phone
-    - device_tracker.iphone_sarah_2
+    - device_tracker.sarah_phone_wifi
     - device_tracker.sarah_bluetooth
 
   main_lights:
