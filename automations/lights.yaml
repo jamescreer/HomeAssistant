@@ -25,12 +25,7 @@
     event: sunset
     offset: '-02:00:00'
   action:
-  - service: light.turn_on
-    entity_id: group.main_lights
-    data:
-      brightness: 255
-      transition: 5
-      color_name: lightyellow
+  - service: script.main_lights_on
 
 ########################################
 #                                      #
