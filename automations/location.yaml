@@ -58,11 +58,11 @@
   - service: media_player.volume_set
     data:
       entity_id: media_player.kitchen
-      volume_level: '0.20'
+      volume_level: '0.50'
   - service: tts.google_translate_say
     entity_id: media_player.kitchen
     data:
-      message: 'Welcome home James'
+      message: 'Welcome home The James'
 
 ########################################
 #                                      #
