@@ -20,6 +20,8 @@ homeassistant:
 #                                      #
 ########################################
 
+default_config:
+
 #https://www.home-assistant.io/components/arlo/
 arlo:
   username: !secret general_email
