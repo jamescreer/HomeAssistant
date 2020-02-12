@@ -28,14 +28,14 @@ arlo:
   password: !secret arlo_password
 
 #https://www.home-assistant.io/components/cast/
-cast:
-  media_player:
-    - host: 192.168.1.30
-    - host: 192.168.1.31
-    - host: 192.168.1.32
-    - host: 192.168.1.33
-    - host: 192.168.1.34
-    - host: 192.168.1.35
+#cast:
+#  media_player:
+#    - host: 192.168.1.30
+#    - host: 192.168.1.31
+#    - host: 192.168.1.32
+#    - host: 192.168.1.33
+#    - host: 192.168.1.34
+#    - host: 192.168.1.35
 
 #https://www.home-assistant.io/components/cloud/
 cloud:
@@ -112,9 +112,9 @@ openuv:
 person:
 
 #https://www.home-assistant.io/components/ring/
-ring:
-  username: !secret general_email
-  password: !secret ring_password
+#ring:
+#  username: !secret general_email
+#  password: !secret ring_password
 
 #https://www.home-assistant.io/components/speedtestdotnet/
 speedtestdotnet:
