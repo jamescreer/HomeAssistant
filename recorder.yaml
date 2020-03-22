@@ -36,6 +36,7 @@
       - sensor.back_door_temp
       - sensor.sliding_door_temp
       - sensor.netatmo_outdoors_temperature
+      - sensor.ups_battery_runtime
 
 ########################################
 #                                      #
