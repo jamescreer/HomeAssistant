@@ -21,16 +21,15 @@ cards:
         icon: mdi:door
     columns: 3
 
-  - type: custom:mini-graph-card
+  - type: history-graph
     entities:
       - entity: sensor.energy_usage
       - entity: sensor.solar_generation
     name: Household Power
     icon: mdi:flash
     hours_to_show: 48
-    points_per_hour: 0.25
 
-  - type: custom:mini-graph-card
+  - type: history-graph
     entities:
       - entity: sensor.netatmo_indoors_temperature
       - entity: sensor.temperature_nursery
@@ -40,9 +39,6 @@ cards:
     name: Indoor Temperature
     icon: mdi:thermometer
     hours_to_show: 48
-    points_per_hour: 0.25
-    show:
-      legend: false
 
   - type: glance
     title: James Location
