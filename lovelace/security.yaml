@@ -14,9 +14,11 @@ cards:
         name: Bathroom
       - entity: binary_sensor.garage_sensor_motion
         name: Garage
+      - entity: binary_sensor.backroom_sensor_motion
+        name: Backroom
       - entity: binary_sensor.laundry_sensor_motion
         name: Laundry
-    columns: 3
+    columns: 4
   - type: glance
     title: Door Status
     entities:
@@ -33,11 +35,11 @@ cards:
   - type: glance
     title: Doorbell
     entities:
-      - entity: binary_sensor.ring_front_door_ding
+      - entity: binary_sensor.front_door_ding
         name: Ding
-      - entity: sensor.ring_front_door_last_ding
+      - entity: sensor.front_door_last_ding
         name: Last Ding
-      - entity: binary_sensor.ring_front_door_motion
+      - entity: binary_sensor.front_door_motion
         name: Motion
-      - entity: sensor.ring_front_door_last_motion
+      - entity: sensor.front_door_last_motion
         name: Last Motion
