@@ -22,6 +22,7 @@ cards:
        name: Next Sunset
        icon: mdi:weather-sunset-down
      - entity: sensor.moon
+     - entity: sensor.season
 
   - type: entities
     title: UV Index
