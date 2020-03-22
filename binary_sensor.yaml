@@ -31,8 +31,9 @@
   - platform: ping
     host: 192.168.1.7
     name: Arlo
-#https://www.home-assistant.io/components/ring/#binary-sensor
-  - platform: ring
+  - platform: ping
+    host: 192.168.1.103
+    name: Philips Hue
 
 ########################################
 #                                      #
