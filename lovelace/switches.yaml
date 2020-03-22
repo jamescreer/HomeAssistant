@@ -40,8 +40,8 @@ cards:
         name: Garage
       - entity: light.laundry
         name: Laundry
-      - entity: light.nursery
-        name: Nursery
+      - entity: light.back_hallway
+        name: Back Hallway
   - type: entities
     title: Broadlink IR Switches
     show_header_toggle: false
