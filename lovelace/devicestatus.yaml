@@ -20,16 +20,21 @@ cards:
           - entity: sensor.ups_output_voltage
           - entity: sensor.ups_battery_charge
             icon: mdi:battery-charging
-          - entity: sensor.ups_load
-            icon: mdi:percent
-          - entity: sensor.ups_battery_runtime
-          - type: custom:mini-graph-card
-            entities:
-              - entity: sensor.ups_approx_wattage
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.ups_approx_wattage
             name: Load
             icon: mdi:gauge
-            hours_to_show: 48
-            points_per_hour: 0.25
+            hours_to_show: 24
+            graph: line
+            detail: 1
+          - type: sensor
+            entity: sensor.ups_battery_runtime
+            name: Runtime
+            hours_to_show: 24
+            graph: line
+            detail: 1
 
   - type: custom:vertical-stack-in-card
     cards:
@@ -48,24 +53,29 @@ cards:
           - entity: sensor.garage_ups_load
             icon: mdi:percent
           - entity: sensor.garage_ups_battery_runtime
-          - type: custom:mini-graph-card
-            entities:
-              - entity: sensor.garage_ups_approx_wattage
+          - entity: sensor.processor_use
             name: Load
-            icon: mdi:gauge
-            hours_to_show: 48
-            points_per_hour: 0.25
+            hours_to_show: 24
+            graph: line
+            detail: 1
 
   - type: custom:vertical-stack-in-card
     title: Network
     cards:
-      - type: custom:mini-graph-card
-        entities:
-          - entity: sensor.speedtest_download
-          - entity: sensor.speedtest_upload
-        icon: mdi:wan
-        hours_to_show: 48
-        points_per_hour: 0.25
+      - type: horizontal-stack
+        cards:
+          - type: sensor
+            entity: sensor.speedtest_download
+            name: Download
+            hours_to_show: 24
+            graph: line
+            detail: 1
+          - type: sensor
+            entity: sensor.speedtest_upload
+            name: Upload
+            hours_to_show: 24
+            graph: line
+            detail: 1
       - type: entities
         show_header_toggle: false
         entities:
@@ -112,7 +122,7 @@ cards:
           - entity: binary_sensor.arlo
           - entity: binary_sensor.sannce
           - entity: sensor.macbook
-          - entity: sensor.piaware
+          - entity: device_tracker.piaware_lan
           - entity: sensor.ps4
           - entity: sensor.vacuum
 
@@ -137,16 +147,7 @@ cards:
       - entity: sensor.battery_level_nursery
         name: Arlo Nursery
         icon: mdi:battery-50
-      - entity: sensor.battery_level_kitchen
-        icon: mdi:battery-50
-        name: Arlo Kitchen Battery
-      - entity: sensor.battery_level_garage
-        icon: mdi:battery-50
-        name: Arlo Garage Battery
-      - entity: sensor.battery_level_front_room
-        icon: mdi:battery-50
-        name: Arlo Front Room Battery
-      - entity: sensor.ring_front_door_battery
+      - entity: sensor.front_door_battery
         icon: mdi:battery-50
         name: Ring Front Door Battery
       - entity: sensor.front_door_battery_status
@@ -154,7 +155,7 @@ cards:
         name: ZWave Front Door Battery
 
   - type: entities
-    title: Baby Turtle Tank
+    title: Turtle Tank
     show_header_toggle: false
     entities:
       - entity: sensor.baby_turtle_tank_watts
