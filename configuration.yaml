@@ -27,16 +27,6 @@ arlo:
   username: !secret general_email
   password: !secret arlo_password
 
-#https://www.home-assistant.io/components/cast/
-#cast:
-#  media_player:
-#    - host: 192.168.1.30
-#    - host: 192.168.1.31
-#    - host: 192.168.1.32
-#    - host: 192.168.1.33
-#    - host: 192.168.1.34
-#    - host: 192.168.1.35
-
 #https://www.home-assistant.io/components/cloud/
 cloud:
 
@@ -59,9 +49,8 @@ geo_location:
 history:
 
 #https://home-assistant.io/components/http/
-http:
-  ip_ban_enabled: true
-  login_attempts_threshold: 2
+#  ip_ban_enabled: true
+#  login_attempts_threshold: 2
 
 #https://www.home-assistant.io/components/hue/
 hue:
@@ -89,32 +78,15 @@ map:
 
 #https://www.home-assistant.io/components/netatmo/
 netatmo:
-  api_key: !secret netatmo_api_key
-  secret_key: !secret netatmo_secret_key
-  username: !secret general_email
-  password: !secret netatmo_password
+  client_id: !secret netatmo_api_key
+  client_secret: !secret netatmo_secret_key
 
 #https://www.home-assistant.io/components/openuv/
 openuv:
   api_key: !secret openuv
-  binary_sensors:
-    monitored_conditions:
-      - uv_protection_window
-  sensors:
-    monitored_conditions:
-      - current_ozone_level
-      - current_uv_index
-      - current_uv_level
-      - max_uv_index
-      - safe_exposure_time_type_3
 
 #https://www.home-assistant.io/components/person/
 person:
-
-#https://www.home-assistant.io/components/ring/
-#ring:
-#  username: !secret general_email
-#  password: !secret ring_password
 
 #https://www.home-assistant.io/components/speedtestdotnet/
 speedtestdotnet:
