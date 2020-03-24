@@ -5,10 +5,12 @@
 ########################################
 
 resources:
- - url: /community_plugin/mini-graph-card/mini-graph-card.js
+ - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
    type: module
  - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
    type: js
+ - url: /community_plugin/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
+   type: module
 
 title: Home
 views:
