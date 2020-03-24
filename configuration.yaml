@@ -39,7 +39,7 @@ downloader:
 
 #https://www.home-assistant.io/components/frontend/
 frontend:
-  themes: !include themes.yaml
+  themes: !include_dir_merge_named themes
 
 #https://www.home-assistant.io/components/nsw_rural_fire_service_feed/
 geo_location:
@@ -58,6 +58,16 @@ hue:
     - host: 192.168.1.103
       allow_unreachable: true
       allow_hue_groups: false
+
+#https://www.home-assistant.io/integrations/light.group
+light:
+  - platform: group
+    name: Living Room Lights
+    entities:
+      - light.living_room_1
+      - light.living_room_2
+      - light.front_room_1
+      - light.front_room_2
 
 #https://www.home-assistant.io/components/logbook/
 logbook:
