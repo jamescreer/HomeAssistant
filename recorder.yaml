@@ -7,7 +7,7 @@
 ########################################
 
   purge_interval: 1
-  purge_keep_days: 2
+  purge_keep_days: 5
   include:
     domains:
       - automation
@@ -37,6 +37,7 @@
       - sensor.sliding_door_temp
       - sensor.netatmo_outdoors_temperature
       - sensor.ups_battery_runtime
+      - sensor.australia_coronavirus_confirmed
 
 ########################################
 #                                      #
