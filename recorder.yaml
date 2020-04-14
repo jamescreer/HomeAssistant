@@ -7,7 +7,7 @@
 ########################################
 
   purge_interval: 1
-  purge_keep_days: 5
+  purge_keep_days: 14
   include:
     domains:
       - automation
@@ -19,6 +19,7 @@
       - sensor.solar_generation
       - sensor.speedtest_download
       - sensor.speedtest_upload
+      - sensor.speedtest_ping
       - sensor.garage_ups_approx_wattage
       - sensor.ups_approx_wattage
       - sensor.dishwasher_status
@@ -32,12 +33,28 @@
       - sensor.temperature_nursery
       - sensor.bathroom_sensor_temperature
       - sensor.garage_sensor_temperature
-      - sensor.laundry_sensor_temperature
+      - sensor.bathroom_sensor_temperature
+      - sensor.garage_sensor_light_level
+      - sensor.laundry_sensor_light_level
       - sensor.back_door_temp
       - sensor.sliding_door_temp
       - sensor.netatmo_outdoors_temperature
       - sensor.ups_battery_runtime
       - sensor.australia_coronavirus_confirmed
+      - sensor.backroom_sensor_temperature
+      - sensor.backroom_sensor_light_level
+      - sensor.backroom_sensor_light_level
+      - sensor.bathroom_sensor_light_level
+      - sensor.laundry_sensor_temperature
+      - sensor.front_door_status
+      - sensor.back_door_status
+      - sensor.sliding_door_status
+      - sensor.quarantine_meter_james
+      - sensor.quarantine_meter_james_times_left
+      - sensor.quarantine_meter_sarah
+      - sensor.quarantine_meter_sarah_times_left
+      - person.james
+      - person.sarah
 
 ########################################
 #                                      #
