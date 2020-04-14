@@ -44,7 +44,7 @@
       mode: blink
     service: light.lifx_effect_pulse
   - service: tts.google_translate_say
-    entity_id: media_player.living_room
+    entity_id: media_player.kitchen
     data:
       message: 'James, dont forget to put out the yellow-lidded recycling bin and the green-lidded organics bin tonight'
 
@@ -84,7 +84,7 @@
       mode: blink
     service: light.lifx_effect_pulse
   - service: tts.google_translate_say
-    entity_id: media_player.living_room
+    entity_id: media_player.kitchen
     data:
       message: 'James, dont forget to put out the red-lidded garbage bin and the green-lidded organics bin tonight'
 
