@@ -14,16 +14,12 @@
     offset: '+00:30:00'
   action:
   - service: switch.turn_on
-    entity_id: switch.eastern_long_neck
-  - service: switch.turn_on
     entity_id: switch.baby_turtle_tank
   - service: notify.james
     data_template:
       message: "The Turtle tank lights have been turned on.
 
-      Backroom Tank: {{ states('switch.eastern_long_neck') }}
-
-      Baby Turtle Tank: {{ states('switch.baby_turtle_tank') }}
+      Turtle Tank: {{ states('switch.baby_turtle_tank') }}
 
       Today's Forecast: {{ states('sensor.penrith_forecast_summary') }}"
 
@@ -34,16 +30,12 @@
     event: sunset
   action:
   - service: switch.turn_off
-    entity_id: switch.eastern_long_neck
-  - service: switch.turn_off
     entity_id: switch.baby_turtle_tank
   - service: notify.james
     data_template:
       message: "The Turtle tank lights have been turned off.
 
-      Backroom Tank: {{ states('switch.eastern_long_neck') }}
-
-      Baby Turtle Tank: {{ states('switch.baby_turtle_tank') }}
+      Turtle Tank: {{ states('switch.baby_turtle_tank') }}
 
       Tomorrow's Forecast: {{ states('sensor.penrith_forecast_summary') }}"
 
