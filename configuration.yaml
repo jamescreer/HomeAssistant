@@ -23,9 +23,9 @@ homeassistant:
 default_config:
 
 #https://www.home-assistant.io/components/arlo/
-arlo:
-  username: !secret general_email
-  password: !secret arlo_password
+#arlo:
+#  username: !secret general_email
+#  password: !secret arlo_password
 
 #https://www.home-assistant.io/components/cloud/
 cloud:
@@ -36,6 +36,12 @@ config:
 #https://www.home-assistant.io/components/downloader
 downloader:
   download_dir: downloads
+
+#https://www.home-assistant.io/integrations/dyson/
+dyson:
+  username: !secret dyson_username
+  password: !secret dyson_password
+  language: AU
 
 #https://www.home-assistant.io/components/frontend/
 frontend:
@@ -66,6 +72,16 @@ light:
     entities:
       - light.living_room_1
       - light.living_room_2
+      - light.front_room_1
+      - light.front_room_2
+  - platform: group
+    name: Back Room Lights
+    entities:
+      - light.living_room_1
+      - light.living_room_2
+  - platform: group
+    name: Front Room Lights
+    entities:
       - light.front_room_1
       - light.front_room_2
 
