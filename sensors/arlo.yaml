@@ -7,15 +7,15 @@
 ########################################
 
 #https://www.home-assistant.io/components/arlo/#sensor
-  - platform: arlo
-    monitored_conditions:
-     - captured_today
-     - last_capture
-     - total_cameras
-     - battery_level
-     - temperature
-     - humidity
-     - air_quality
+#  - platform: arlo
+#    monitored_conditions:
+#     - captured_today
+#     - last_capture
+#     - total_cameras
+#     - battery_level
+#     - temperature
+#     - humidity
+#     - air_quality
 
 ########################################
 #                                      #
