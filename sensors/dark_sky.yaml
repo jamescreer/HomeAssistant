@@ -1,0 +1,32 @@
+#https://home-assistant.io/components/sensor/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/components/weather.darksky/
+  - platform: darksky
+    api_key: !secret darksky_api
+    scan_interval:
+        minutes: 3
+    forecast:
+      - 0
+      - 1
+      - 7
+    hourly_forecast:
+      - 0
+      - 1
+    monitored_conditions:
+      - summary
+      - icon
+      - temperature
+      - hourly_summary
+      - daily_summary
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################
