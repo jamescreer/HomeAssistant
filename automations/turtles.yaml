@@ -14,13 +14,13 @@
     offset: '+00:30:00'
   action:
   - service: switch.turn_on
-    entity_id: switch.baby_turtle_tank
+    entity_id: switch.turtle_tank
   - service: notify.james
     data_template:
-      message: "The Turtle tank lights have been turned on.
+      message: "The turtle tank lights have been turned {{ states('switch.turtle_tank') }}.
 
-      Turtle Tank: {{ states('switch.baby_turtle_tank') }}
-
+      {{ (states('sensor.solaredge_current_power') | float / 1000) | round(2) }} kW of power is currently being produced.
+      
       Today's Forecast: {{ states('sensor.penrith_forecast_summary') }}"
 
 - alias: 'Tank Lights Off - Sunset'
@@ -30,13 +30,13 @@
     event: sunset
   action:
   - service: switch.turn_off
-    entity_id: switch.baby_turtle_tank
+    entity_id: switch.turtle_tank
   - service: notify.james
     data_template:
-      message: "The Turtle tank lights have been turned off.
-
-      Turtle Tank: {{ states('switch.baby_turtle_tank') }}
-
+      message: "The turtle tank lights are now {{ states('switch.turtle_tank') }}.
+      
+      {{ (states('sensor.solaredge_energy_today') | float / 1000) | round(2) }} kWh of power was generated today.
+      
       Tomorrow's Forecast: {{ states('sensor.penrith_forecast_summary') }}"
 
 ########################################
