@@ -7,32 +7,32 @@
 ########################################
 
 #https://www.home-assistant.io/components/sensor.mqtt/
-  - platform: mqtt
-    name: front_door_sensor
-    state_topic: "remotepi/binary_sensor/aeotec_zw112_door_window_sensor_6_sensor/state"
+#  - platform: mqtt
+#    name: front_door_sensor
+#    state_topic: "remotepi/binary_sensor/aeotec_zw112_door_window_sensor_6_sensor/state"
 
-  - platform: mqtt
-    name: front_door_battery_status
-    state_topic: "remotepi/sensor/front_door_battery_status/state"
-    unit_of_measurement: '%'
+#  - platform: mqtt
+#    name: front_door_battery_status
+#    state_topic: "remotepi/sensor/front_door_battery_status/state"
+#    unit_of_measurement: '%'
 
-  - platform: mqtt
-    name: sliding_door_sensor
-    state_topic: "remotepi/sensor/fibaro_system_unknown_type_0702_id_3000_access_control/state"
+#  - platform: mqtt
+#    name: sliding_door_sensor
+#    state_topic: "remotepi/sensor/fibaro_system_unknown_type_0702_id_3000_access_control/state"
 
-  - platform: mqtt
-    name: sliding_door_temp
-    state_topic: "remotepi/sensor/fibaro_system_unknown_type_0702_id_3000_temperature/state"
-    unit_of_measurement: '°C'
+#  - platform: mqtt
+#    name: sliding_door_temp
+#    state_topic: "remotepi/sensor/fibaro_system_unknown_type_0702_id_3000_temperature/state"
+#    unit_of_measurement: '°C'
 
-  - platform: mqtt
-    name: back_door_sensor
-    state_topic: "remotepi/sensor/fibaro_system_unknown_type_0702_id_3000_access_control_2/state"
+#  - platform: mqtt
+#    name: back_door_sensor
+#    state_topic: "remotepi/sensor/fibaro_system_unknown_type_0702_id_3000_access_control_2/state"
 
-  - platform: mqtt
-    name: back_door_temp
-    state_topic: "remotepi/sensor/fibaro_system_unknown_type_0702_id_3000_temperature_2/state"
-    unit_of_measurement: '°C'
+#  - platform: mqtt
+#    name: back_door_temp
+#    state_topic: "remotepi/sensor/fibaro_system_unknown_type_0702_id_3000_temperature_2/state"
+#    unit_of_measurement: '°C'
 
 ########################################
 #                                      #
