@@ -29,9 +29,6 @@
     host: 192.168.1.6
     name: Pi-hole
   - platform: ping
-    host: 192.168.1.7
-    name: Arlo
-  - platform: ping
     host: 192.168.1.103
     name: Philips Hue
 
