@@ -1,13 +1,2 @@
-#https://www.home-assistant.io/docs/configuration/customizing-devices/
-
-########################################
-#                                      #
-#     START OF CONFIGURATION FILE      #
-#                                      #
-########################################
-
-########################################
-#                                      #
-#      END OF CONFIGURATION FILE       #
-#                                      #
-########################################
+sensor.fibaro_system_unknown_type_0702_id_3000_access_control:
+  friendly_name: Sliding Door
