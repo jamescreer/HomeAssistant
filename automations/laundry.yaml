@@ -1,0 +1,30 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: 'Laundry Motion'
+  initial_state: 'false'
+  trigger:
+      platform: state
+      entity_id: binary_sensor.laundry_sensor_motion
+      from: 'off'
+      to: 'on'
+  action:
+  - service:  media_player.play_media
+    data:
+      entity_id: media_player.laundry_speaker
+      media_content_id: !secret sound_bathroom
+      media_content_type: audio/mp3
+  - service: notify.james
+    data_template:
+      message: "Bathroom tune time!"
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################
