@@ -11,10 +11,10 @@ cards:
     show_header_toggle: false
     entities:
       - entity: automation.21_00_lights_off
+      - entity: automation.midnight_lights_off
       - entity: automation.sunset_lights_on
       - entity: automation.home_lights_on
       - entity: automation.05_45_lights_on
-      - entity: automation.everyone_has_left_turn_lights_off
 
   - type: entities
     title: Bedroom
@@ -32,7 +32,7 @@ cards:
       - entity: automation.home_assistant_stopped
       - entity: automation.disk_use_alarm
       - entity: automation.update_template_sensors
-      - entity: automation.new_home_assitant_version
+      - entity: automation.new_home_assistant_version
 
   - type: entities
     title: Bins
@@ -87,7 +87,9 @@ cards:
     entities:
       - entity: automation.sarah_home
       - entity: automation.james_home
-
+      - entity: automation.everyone_has_left_the_house
+      - entity: automation.notify_when_someone_enters_or_leaves_a_zone
+      
   - type: entities
     title: Chromecast
     show_header_toggle: false
@@ -111,10 +113,11 @@ cards:
       - entity: automation.turn_off_living_room_aircon
 
   - type: entities
-    title: Bathroom
+    title: Motion music
     show_header_toggle: false
     entities:
       - entity: automation.bathroom_motion
+      - entity: automation.laundry_motion
 
   - type: entities
     title: Doorbell
