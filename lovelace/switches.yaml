@@ -14,8 +14,6 @@ cards:
         label: LIFX
       - entity: light.bedroom_1
         name: Bedroom
-      - entity: light.study
-        name: Study
       - entity: light.front_room_1
         name: Front Room 1
       - entity: light.front_room_2
@@ -24,7 +22,7 @@ cards:
         name: Living Room 1
       - entity: light.living_room_2
         name: Living Room 2
-      - entity: group.main_lights
+      - entity: light.living_room_lights
         name: Main Lights
       - entity: script.main_lights_on
         name: Main Lights On
@@ -40,7 +38,7 @@ cards:
         name: Garage
       - entity: light.laundry
         name: Laundry
-      - entity: light.back_hallway
+      - entity: light.backroom_light
         name: Back Hallway
   - type: entities
     title: Broadlink IR Switches
@@ -72,12 +70,11 @@ cards:
     title: TP-Link Switches
     show_header_toggle: false
     entities:
-      - entity: switch.eastern_long_neck
-      - entity: switch.baby_turtle_tank
+      - entity: switch.turtle_tank
       - entity: switch.dishwasher
       - entity: switch.washing_machine
       - entity: switch.dryer
-      - entity: switch.bug_zapper
+      - entity: switch.home_assistant
 
   - type: entities
     title: Machine Input Select
