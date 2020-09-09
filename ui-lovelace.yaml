@@ -7,10 +7,14 @@
 resources:
  - url: /hacsfiles/mini-graph-card/mini-graph-card-bundle.js
    type: module
- - url: /community_plugin/vertical-stack-in-card/vertical-stack-in-card.js
+ - url: /hacsfiles/vertical-stack-in-card/vertical-stack-in-card.js
    type: js
- - url: /community_plugin/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
+ - url: /hacsfiles/lovelace-xiaomi-vacuum-card/xiaomi-vacuum-card.js
    type: module
+ - url: /hacsfiles/button-card/button-card.js
+   type: module
+ - url: /local/simple-weather-card-bundle.js?v=0.7.2
+   type: js
 
 title: Home
 views:
