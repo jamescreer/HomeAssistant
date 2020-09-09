@@ -6,11 +6,8 @@
 #                                      #
 ########################################
 
-#https://www.home-assistant.io/components/device_tracker.mqtt/
-  - platform: mqtt
-    devices:
-      james_bluetooth: 'remotepi/device_tracker/jc_iphone_2/state'
-      sarah_bluetooth: 'remotepi/device_tracker/sc/state'
+#https://www.home-assistant.io/components/device_tracker.bluetooth_tracker/
+  - platform: bluetooth_tracker
 
 ########################################
 #                                      #
