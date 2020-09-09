@@ -4,15 +4,15 @@
 #                                      #
 ########################################
 
-#https://www.home-assistant.io/docs/configuration/basic/
+#https://home-assistant.io/docs/configuration/basic/
 homeassistant:
   name: Home
   latitude: !secret latitude
   longitude: !secret longitude
   elevation: 46
   unit_system: metric
-  whitelist_external_dirs:
-    - /config
+  time_zone: Australia/Sydney
+  customize: !include customize.yaml
 
 ########################################
 #                                      #
@@ -20,18 +20,8 @@ homeassistant:
 #                                      #
 ########################################
 
+#https://www.home-assistant.io/integrations/default_config/
 default_config:
-
-#https://www.home-assistant.io/components/arlo/
-#arlo:
-#  username: !secret general_email
-#  password: !secret arlo_password
-
-#https://www.home-assistant.io/components/cloud/
-cloud:
-
-#https://home-assistant.io/components/config/
-config:
 
 #https://www.home-assistant.io/components/downloader
 downloader:
@@ -51,12 +41,10 @@ frontend:
 geo_location:
   - platform: nsw_rural_fire_service_feed
 
-#https://home-assistant.io/components/history/
-history:
-
 #https://home-assistant.io/components/http/
-#  ip_ban_enabled: true
-#  login_attempts_threshold: 2
+http:
+  ip_ban_enabled: true
+  login_attempts_threshold: 10
 
 #https://www.home-assistant.io/components/hue/
 hue:
@@ -64,6 +52,10 @@ hue:
     - host: 192.168.1.103
       allow_unreachable: true
       allow_hue_groups: false
+
+#https://www.home-assistant.io/lovelace/yaml-mode/
+lovelace:
+  mode: yaml
 
 #https://www.home-assistant.io/integrations/light.group
 light:
@@ -85,54 +77,23 @@ light:
       - light.front_room_1
       - light.front_room_2
 
-#https://www.home-assistant.io/components/logbook/
-logbook:
-
-#https://home-assistant.io/components/logger/
-logger:
-  default: error
-
-#https://www.home-assistant.io/docs/ecosystem/ios/
-ios:
-
-#https://www.home-assistant.io/lovelace/yaml-mode/
-lovelace:
-  mode: yaml
-
-#https://www.home-assistant.io/components/map/
-map:
-
 #https://www.home-assistant.io/components/netatmo/
 netatmo:
   client_id: !secret netatmo_api_key
   client_secret: !secret netatmo_secret_key
 
-#https://www.home-assistant.io/components/openuv/
-openuv:
-  api_key: !secret openuv
-
-#https://www.home-assistant.io/components/person/
-person:
-
 #https://www.home-assistant.io/components/speedtestdotnet/
 speedtestdotnet:
 
-#https://home-assistant.io/components/sun/
-sun:
+#https://www.home-assistant.io/integrations/spotify/
+spotify:
+  client_id: !secret spotify_id
+  client_secret: !secret spotify_secret
 
-#https://www.home-assistant.io/components/system_health/
-system_health:
-
-#https://www.home-assistant.io/components/tplink/
-tplink:
-  discovery: false
-  switch:
-    - host: 192.168.1.60
-    - host: 192.168.1.61
-    - host: 192.168.1.62
-    - host: 192.168.1.63
-    - host: 192.168.1.64
-    - host: 192.168.1.65
+#https://github.com/fondberg/spotcast
+spotcast:
+  sp_dc: !secret sp_dc
+  sp_key: !secret sp_key
 
 #https://www.home-assistant.io/components/tts/
 tts:
@@ -148,7 +109,6 @@ vacuum:
 weather:
   - platform: darksky
     api_key: !secret darksky_api
-    mode: daily
 
 ########################################
 #                                      #
@@ -159,6 +119,8 @@ weather:
 #https://custom-components.github.io/hacs/
 hacs:
   token: !secret github_token
+  sidepanel_title: HACS
+  sidepanel_icon: mdi:store
 
 ########################################
 #                                      #
@@ -172,14 +134,14 @@ binary_sensor: !include binary_sensor.yaml
 camera: !include cameras.yaml
 device_tracker: !include device_tracker.yaml
 group: !include groups.yaml
-input_select: !include input_select.yaml
 input_number: !include input_number.yaml
+input_select: !include input_select.yaml
 notify: !include notification.yaml
 recorder: !include recorder.yaml
 script: !include scripts.yaml
 sensor: !include_dir_merge_list sensors/
-zone: !include zones.yaml
 switch: !include switches.yaml
+zone: !include zones.yaml
 
 ########################################
 #                                      #
