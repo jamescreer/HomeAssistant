@@ -10,14 +10,18 @@
   - platform: template
     sensors:
 
+      front_door_battery_status:
+        value_template: '{% if states.zwave.aeotec_zw112_door_window_sensor_6 %} {{ states.zwave.aeotec_zw112_door_window_sensor_6.attributes.battery_level |int }} {% else %} Unknown {% endif %}'
+        unit_of_measurement: '%'
+
       front_door_status:
-        value_template: "{%if states.sensor.front_door_sensor.state == 'on' %}Open{%elif states.sensor.front_door_sensor.state == 'off' %}Closed{% endif %}"
+        value_template: "{%if states.binary_sensor.aeotec_zw112_door_window_sensor_6_sensor.state == 'on' %}Open{%elif states.binary_sensor.aeotec_zw112_door_window_sensor_6_sensor.state == 'off' %}Closed{% endif %}"
 
       back_door_status:
-        value_template: "{%if states.sensor.sliding_door_sensor.state == '22' %}Open{%elif states.sensor.sliding_door_sensor.state == '23' %}Closed{% endif %}"
+        value_template: "{%if states.sensor.fibaro_system_unknown_type_0702_id_3000_access_control.state == '22' %}Open{%elif states.sensor.fibaro_system_unknown_type_0702_id_3000_access_control.state == '23' %}Closed{% endif %}"
 
       sliding_door_status:
-        value_template: "{%if states.sensor.back_door_sensor.state == '22' %}Open{%elif states.sensor.back_door_sensor.state == '23' %}Closed{% endif %}"
+        value_template: "{%if states.sensor.fibaro_system_unknown_type_0702_id_3000_access_control_2.state == '22' %}Open{%elif states.sensor.fibaro_system_unknown_type_0702_id_3000_access_control_2.state == '23' %}Closed{% endif %}"
 
       audrey:
         value_template: '{{ (( as_timestamp(now()) - as_timestamp(strptime("2019-07-05 00:00:00" , "%Y-%m-%dT%H:%M:%S")) )/ (3600*24)) | round(0) }}'
@@ -86,25 +90,25 @@
         value_template: "{{ 'Connected' if is_state('device_tracker.piaware', 'home') else 'Disconnected' }}"
         icon_template: mdi:airplane
 
-      baby_turtle_tank_amps:
-        friendly_name_template: "{{ states.switch.baby_turtle_tank.name}} Current"
-        value_template: '{{ states.switch.baby_turtle_tank.attributes["current_a"] | float }}'
+      turtle_tank_amps:
+        friendly_name_template: "{{ states.switch.turtle_tank.name}} Current"
+        value_template: '{{ states.switch.turtle_tank.attributes["current_a"] | float }}'
         unit_of_measurement: 'A'
-      baby_turtle_tank_watts:
-        friendly_name_template: "{{ states.switch.baby_turtle_tank.name}} Current Consumption"
-        value_template: '{{ states.switch.baby_turtle_tank.attributes["current_power_w"] | float }}'
+      turtle_tank_watts:
+        friendly_name_template: "{{ states.switch.turtle_tank.name}} Current Consumption"
+        value_template: '{{ states.switch.turtle_tank.attributes["current_power_w"] | float }}'
         unit_of_measurement: 'W'
-      baby_turtle_tank_total_kwh:
-        friendly_name_template: "{{ states.switch.baby_turtle_tank.name}} Total Consumption"
-        value_template: '{{ states.switch.baby_turtle_tank.attributes["total_energy_kwh"] | float }}'
+      turtle_tank_total_kwh:
+        friendly_name_template: "{{ states.switch.turtle_tank.name}} Total Consumption"
+        value_template: '{{ states.switch.turtle_tank.attributes["total_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'
-      baby_turtle_tank_volts:
-        friendly_name_template: "{{ states.switch.baby_turtle_tank.name}} Voltage"
-        value_template: '{{ states.switch.baby_turtle_tank.attributes["voltage"] | float }}'
+      turtle_tank_volts:
+        friendly_name_template: "{{ states.switch.turtle_tank.name}} Voltage"
+        value_template: '{{ states.switch.turtle_tank.attributes["voltage"] | float }}'
         unit_of_measurement: 'V'
-      baby_turtle_tank_today_kwh:
-        friendly_name_template: "{{ states.switch.baby_turtle_tank.name}} Today's Consumption"
-        value_template: '{{ states.switch.baby_turtle_tank.attributes["today_energy_kwh"] | float }}'
+      turtle_tank_today_kwh:
+        friendly_name_template: "{{ states.switch.turtle_tank.name}} Today's Consumption"
+        value_template: '{{ states.switch.turtle_tank.attributes["today_energy_kwh"] | float }}'
         unit_of_measurement: 'kWh'
 
       dishwasher_amps:
