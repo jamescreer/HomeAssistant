@@ -17,11 +17,11 @@
     data_template:
         entity_id: >
             {% if is_state("input_select.radio_player", "Kitchen") %}
-              media_player.kitchen
+              media_player.kitchen_display
             {%-elif is_state("input_select.radio_player", "Nursery") %}
-              media_player.nursery
+              media_player.nursery_speaker
             {%-elif is_state("input_select.radio_player", "Living Room") %}
-              media_player.living_room
+              media_player.living_room_speaker
             {% else %}
               "None"
             {% endif %}
@@ -36,11 +36,11 @@
     data_template:
         entity_id: >
           {% if is_state("input_select.radio_player", "Kitchen") %}
-              media_player.kitchen
+              media_player.kitchen_display
           {%-elif is_state("input_select.radio_player", "Nursery") %}
-              media_player.nursery
+              media_player.nursery_speaker
           {%-elif is_state("input_select.radio_player", "Living Room") %}
-              media_player.living_room
+              media_player.living_room_speaker
           {% else %}
             "None"
           {% endif %}
@@ -70,15 +70,36 @@
     data_template:
         entity_id: >
           {% if is_state("input_select.radio_player", "Kitchen") %}
-            media_player.kitchen
+            media_player.kitchen_display
           {% elif is_state("input_select.radio_player", "Nursery") %}
-            media_player.nursery
+            media_player.nursery_speaker
           {% elif is_state("input_select.radio_player", "Living Room") %}
-            media_player.living_room
+            media_player.living_room_speaker
           {% else %}
             "None"
           {% endif %}
         volume_level: "{{ states.input_number.google_volume.state | float / 10 }}"
+        
+- alias: 'Nursery Music'
+  initial_state: 'true'
+  trigger:
+  - at: '19:00:00'
+    platform: time
+  action:
+  - service: spotcast.start
+    data:
+      entity_id: media_player.nursery_speaker
+      uri: 'spotify:album:3mhj07LztP90qqKz37X1YG'
+      repeat: 'true'
+      random_song: 'true'
+  - service: media_player.volume_set
+    data_template:
+        entity_id: media_player.nursery_speaker
+        volume_level: '0.50'
+  - service: notify.james
+    data_template:
+      message: "Nursery music has started."
+        
 ########################################
 #                                      #
 #      END OF CONFIGURATION FILE       #
