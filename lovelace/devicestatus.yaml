@@ -6,7 +6,7 @@
 background: var(--background-image)
 title: Device Status
 cards:
-  - type: custom:vertical-stack-in-card
+  - type: vertical-stack
     cards:
       - type: entities
         show_header_toggle: false
@@ -36,30 +36,25 @@ cards:
             graph: line
             detail: 1
 
-  - type: custom:vertical-stack-in-card
+  - type: vertical-stack
     cards:
       - type: entities
         show_header_toggle: false
         title: Garage UPS
         entities:
-          - entity: sensor.garage_ups_status
+          - entity: sensor.garage_status
             name: State
             icon: mdi:flash-circle
-          - entity: sensor.garage_ups_input_voltage
-          - entity: sensor.garage_ups_battery_voltage
-          - entity: sensor.garage_ups_output_voltage
+          - entity: sensor.garage_input_voltage
+          - entity: sensor.garage_battery_voltage
+          - entity: sensor.garage_output_voltage
           - entity: sensor.garage_ups_battery_charge
             icon: mdi:battery-charging
-          - entity: sensor.garage_ups_load
+          - entity: sensor.garage_load
             icon: mdi:percent
-          - entity: sensor.garage_ups_battery_runtime
-          - entity: sensor.processor_use
-            name: Load
-            hours_to_show: 24
-            graph: line
-            detail: 1
+          - entity: sensor.garage_battery_runtime
 
-  - type: custom:vertical-stack-in-card
+  - type: vertical-stack
     title: Network
     cards:
       - type: horizontal-stack
@@ -81,7 +76,7 @@ cards:
         entities:
           - entity: sensor.speedtest_ping
 
-  - type: custom:vertical-stack-in-card
+  - type: vertical-stack
     title: Synology NAS
     cards:
       - type: glance
@@ -119,10 +114,9 @@ cards:
           - entity: binary_sensor.pi_hole
           - entity: binary_sensor.nas
           - entity: binary_sensor.pc
-          - entity: binary_sensor.arlo
           - entity: binary_sensor.sannce
           - entity: sensor.macbook
-          - entity: device_tracker.piaware_lan
+          - entity: device_tracker.piaware
           - entity: sensor.ps4
           - entity: sensor.vacuum
 
@@ -158,11 +152,11 @@ cards:
     title: Turtle Tank
     show_header_toggle: false
     entities:
-      - entity: sensor.baby_turtle_tank_watts
-      - entity: sensor.baby_turtle_tank_volts
-      - entity: sensor.baby_turtle_tank_amps
-      - entity: sensor.baby_turtle_tank_today_kwh
-      - entity: sensor.baby_turtle_tank_total_kwh
+      - entity: sensor.turtle_tank_watts
+      - entity: sensor.turtle_tank_volts
+      - entity: sensor.turtle_tank_amps
+      - entity: sensor.turtle_tank_today_kwh
+      - entity: sensor.turtle_tank_total_kwh
 
   - type: entities
     title: Dishwasher
