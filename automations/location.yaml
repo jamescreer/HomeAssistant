@@ -10,12 +10,12 @@
   initial_state: 'true'
   trigger:
     platform: zone
-    entity_id: device_tracker.james_phone, device_tracker.sarah_phone
+    entity_id: person.james, person.sarah
     zone: zone.home
     event: enter
   action:
     service: light.turn_on
-    entity_id: group.main_lights
+    entity_id: light.living_room_lights
   condition:
     condition: time
     after: '22:00:00'
@@ -24,7 +24,7 @@
 - alias: 'Sarah Home'
   trigger:
     - platform: zone
-      entity_id: device_tracker.sarah_phone
+      entity_id: person.sarah
       zone: zone.home
       event: enter
   action:
@@ -33,13 +33,13 @@
       message: "Sarah has arrived home"
   - delay: '00:05:00'
   - service: tts.google_translate_say
-    entity_id: media_player.kitchen
+    entity_id: media_player.kitchen_display
     data:
       message: 'Welcome home Sarah'
   - delay: '00:00:05'
   - service: media_player.play_media
     data:
-      entity_id: media_player.kitchen
+      entity_id: media_player.kitchen_display
       media_content_id: !secret sound_sarah_arrival
       media_content_type: audio/mp3
 
@@ -47,7 +47,7 @@
   initial_state: 'true'
   trigger:
     platform: zone
-    entity_id: device_tracker.james_phone
+    entity_id: person.james
     zone: zone.home
     event: enter
   action:
@@ -57,12 +57,37 @@
   - delay: '00:05:00'
   - service: media_player.volume_set
     data:
-      entity_id: media_player.kitchen
+      entity_id: media_player.kitchen_display
       volume_level: '0.50'
   - service: tts.google_translate_say
-    entity_id: media_player.kitchen
+    entity_id: media_player.kitchen_display
     data:
       message: 'Welcome home the James'
+      
+- alias: 'Everyone has left the house'
+  initial_state: 'true'
+  trigger:
+    platform: state
+    entity_id: group.home_presence
+    to: "not_home"
+  action:
+   - service: notify.james
+     data_template:
+      message: 'Everyone has left the house!'
+
+- alias: 'Notify when someone enters or leaves a zone'
+  trigger:
+    platform: state
+    entity_id: person.james, person.sarah
+  condition:
+    condition: template
+    value_template: "{{ trigger.from_state.state != trigger.to_state.state }}"
+  action:
+    - service: notify.james
+      data_template:
+        title: 'Location update {{ states.sensor.time.state }}'
+        message: "{{ trigger.to_state.attributes.friendly_name }} {% if trigger.to_state.state == 'not_home' %}has left {{ trigger.from_state.state }}{% endif %}{% if trigger.from_state.state == 'not_home' %}arrived at {{ trigger.to_state.state }}{% endif %}"
+
 
 ########################################
 #                                      #
