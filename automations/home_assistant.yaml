@@ -57,7 +57,7 @@
         title: "Synology Disk Use Alarm"
         message: "Granger is running low on disk space, usage is currently at {{ states.sensor.disk_use_percent_home.state }} %!"
 
-  - alias: "New Home Assitant Version"
+  - alias: "New Home Assistant Version"
     initial_state: true
     trigger:
       - platform: state
@@ -72,6 +72,22 @@
       data:
         title: "New Home Assistant Version"
         message: "Version {{ states.sensor.home_assistant_version.state }} is available!"
+
+  - alias: "Send notification upon failed login attempt"
+    trigger:
+      - platform: state
+        entity_id: persistent_notification.http_login
+    condition:
+      - condition: template
+        value_template: "{{ trigger.to_state.state != 'None' }}"
+    action:
+      - service: notify.james
+        data_template:
+          title: Remote Instance - "{{ states.persistent_notification.http_login.attributes.message }}"
+          message: 'url: https://whatismyipaddress.com/ip/{{ states.persistent_notification.http_login.attributes.message.split ("from ") [1]}}'
+      - service: persistent_notification.dismiss
+        data:
+          notification_id: 'http_login'
 
 ########################################
 #                                      #
