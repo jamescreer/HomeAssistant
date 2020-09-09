@@ -34,17 +34,17 @@
       cycles: '3'
       entity_id: light.living_room_1
       mode: blink
-    service: light.lifx_effect_pulse
-  - delay: '2'
+    service: lifx.effect_pulse
+  - delay: '3'
   - data:
       brightness: '204'
       color_name: yellow
       cycles: '3'
       entity_id: light.living_room_1
       mode: blink
-    service: light.lifx_effect_pulse
+    service: lifx.effect_pulse
   - service: tts.google_translate_say
-    entity_id: media_player.kitchen
+    entity_id: media_player.living_room_speaker
     data:
       message: 'James, dont forget to put out the yellow-lidded recycling bin and the green-lidded organics bin tonight'
 
@@ -74,17 +74,17 @@
       cycles: '3'
       entity_id: light.living_room_1
       mode: blink
-    service: light.lifx_effect_pulse
-  - delay: '2'
+    service: lifx.effect_pulse
+  - delay: '3'
   - data:
       brightness: '204'
       color_name: red
       cycles: '3'
       entity_id: light.living_room_1
       mode: blink
-    service: light.lifx_effect_pulse
+    service: lifx.effect_pulse
   - service: tts.google_translate_say
-    entity_id: media_player.kitchen
+    entity_id: media_player.living_room_speaker
     data:
       message: 'James, dont forget to put out the red-lidded garbage bin and the green-lidded organics bin tonight'
 
