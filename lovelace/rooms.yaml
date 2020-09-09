@@ -43,16 +43,16 @@ cards:
   - type: glance
     title: James Location
     entities:
-      - entity: group.james_home_presence
+      - entity: person.james
         name: Combined
         icon: mdi:crosshairs
-      - entity: device_tracker.james_phone
+      - entity: device_tracker.james_owntracks
         name: GPS
         icon: mdi:cellphone-iphone
-      - entity: device_tracker.iphone_james_2
+      - entity: device_tracker.james_wifi
         name: WiFi
         icon: mdi:wifi
-      - entity: device_tracker.james_bluetooth
+      - entity: device_tracker.jc_iphone_2
         name: Bluetooth
         icon: mdi:bluetooth
     columns: 4
@@ -63,13 +63,13 @@ cards:
       - entity: group.sarah_home_presence
         name: Combined
         icon: mdi:crosshairs
-      - entity: device_tracker.sarah_phone
+      - entity: device_tracker.sarah_owntracks
         name: GPS
         icon: mdi:cellphone-iphone
-      - entity: device_tracker.sarah_phone_wifi
+      - entity: device_tracker.sarah_wifi
         name: WiFi
         icon: mdi:wifi
-      - entity: device_tracker.sarah_bluetooth
+      - entity: device_tracker.sc
         name: Bluetooth
         icon: mdi:bluetooth
     columns: 4
@@ -107,13 +107,13 @@ cards:
     entity: weather.dark_sky
 
   - type: media-control
-    entity: media_player.kitchen
+    entity: media_player.kitchen_display
 
   - type: media-control
-    entity: media_player.front_room
+    entity: media_player.front_room_speaker
 
   - type: media-control
-    entity: media_player.nursery
+    entity: media_player.nursery_speaker
 
   - type: media-control
     entity: media_player.front_room_tv
