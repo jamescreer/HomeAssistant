@@ -10,13 +10,13 @@
   initial_state: 'true'
   trigger:
       platform: state
-      entity_id: binary_sensor.ring_front_door_ding
+      entity_id: binary_sensor.front_door_ding
       from: 'off'
       to: 'on'
   action:
   - service:  media_player.play_media
     data:
-      entity_id: media_player.kitchen
+      entity_id: media_player.kitchen_display
       media_content_id: !secret sound_doorbell
       media_content_type: audio/mp3
   - service: notify.james
