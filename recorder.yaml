@@ -61,6 +61,8 @@
       - sensor.solaredge_power_consumption
       - sensor.solaredge_energy_today
       - sensor.nursery_temperature
+      - sensor.energy_status
+      - sensor.solar_status
 
 ########################################
 #                                      #
