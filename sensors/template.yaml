@@ -40,6 +40,14 @@
         unit_of_measurement: 'W'
         value_template: "{{ state_attr('sensor.pvoutput', 'power_generation')|float - 19 }}"
 
+      energy_status:
+        friendly_name: "Energy Status"
+        value_template: "{{ state_attr('sensor.solaredge_grid_power', 'flow') }}"
+
+      solar_status:
+        friendly_name: "Solar Status"
+        value_template: "{{ state_attr('sensor.solaredge_solar_power', 'status') }}"
+
       dishwasher_status:
         value_template: '{{ states.input_select.dishwasher_status.state}}'
         friendly_name: 'Dishwasher Status'
