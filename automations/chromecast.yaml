@@ -83,19 +83,20 @@
 - alias: 'Nursery Music'
   initial_state: 'true'
   trigger:
-  - at: '19:00:00'
-    platform: time
+  - platform: time_pattern
+    minutes: 30
   action:
-  - service: spotcast.start
-    data:
-      entity_id: media_player.nursery_speaker
-      uri: 'spotify:album:3mhj07LztP90qqKz37X1YG'
-      repeat: 'true'
-      random_song: 'true'
   - service: media_player.volume_set
     data_template:
         entity_id: media_player.nursery_speaker
-        volume_level: '0.50'
+        volume_level: '0.30'
+  - service: spotcast.start
+    data:
+      entity_id: media_player.nursery_speaker
+      uri: 'spotify:playlist:5881hJhWU4a5nCqqm0kTRF' 
+      force_playback: 'true'
+      repeat: 'true'
+      random_song: 'true'
   - service: notify.james
     data_template:
       message: "Nursery music has started."
