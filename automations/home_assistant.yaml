@@ -32,7 +32,7 @@
     initial_state: 'true'
     trigger:
         platform: time_pattern
-        minutes: '/60'
+        minutes: '/59'
     action:
       - service: homeassistant.update_entity
         entity_id:
