@@ -81,7 +81,7 @@
         volume_level: "{{ states.input_number.google_volume.state | float / 10 }}"
         
 - alias: 'Nursery Music'
-  initial_state: 'true'
+  initial_state: 'false'
   trigger:
   - platform: time_pattern
     minutes: 30
