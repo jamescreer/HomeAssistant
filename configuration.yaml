@@ -86,9 +86,9 @@ netatmo:
 speedtestdotnet:
 
 #https://www.home-assistant.io/integrations/spotify/
-spotify:
-  client_id: !secret spotify_id
-  client_secret: !secret spotify_secret
+#spotify:
+#  client_id: !secret spotify_id
+#  client_secret: !secret spotify_secret
 
 #https://github.com/fondberg/spotcast
 spotcast:
