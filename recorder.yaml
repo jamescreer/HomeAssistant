@@ -7,7 +7,6 @@
 ########################################
 
   db_url: !secret db_url
-  purge_interval: 1
   purge_keep_days: 14
   include:
     domains:
@@ -42,10 +41,8 @@
       - sensor.netatmo_outdoors_temperature
       - sensor.ups_battery_runtime
       - sensor.australia_coronavirus_confirmed
-      - sensor.backroom_sensor_temperature
-      - sensor.backroom_sensor_light_level
-      - sensor.backroom_sensor_light_level
-      - sensor.bathroom_sensor_light_level
+      - sensor.backroom_temperature
+      - sensor.backroom_light_level
       - sensor.laundry_sensor_temperature
       - sensor.front_door_status
       - sensor.back_door_status
@@ -57,12 +54,15 @@
       - person.james
       - person.sarah
       - sensor.solaredge_current_power
-      - sensor.solaredge_grid_power
       - sensor.solaredge_power_consumption
+      - sensor.solaredge_grid_power
       - sensor.solaredge_energy_today
       - sensor.nursery_temperature
       - sensor.energy_status
       - sensor.solar_status
+      - sensor.front_room_temperature
+      - sensor.solaredge_exported_power
+      - sensor.solaredge_consumption_power
 
 ########################################
 #                                      #
