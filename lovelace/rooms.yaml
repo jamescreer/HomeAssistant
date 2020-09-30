@@ -21,24 +21,26 @@ cards:
         icon: mdi:door
     columns: 3
 
-  - type: history-graph
+  - type: custom:mini-graph-card
     entities:
-      - entity: sensor.energy_usage
+      - entity: sensor.solaredge_power_consumption
       - entity: sensor.solar_generation
     name: Household Power
-    icon: mdi:flash
+    show:
+      legend: false
     hours_to_show: 48
+    points_per_hour: 4
 
-  - type: history-graph
+  - type: custom:mini-graph-card
+    title: Temperature
     entities:
-      - entity: sensor.netatmo_indoors_temperature
-      - entity: sensor.temperature_nursery
-      - entity: sensor.back_door_temp
+      - entity: sensor.front_room_temperature
+      - entity: sensor.laundry_sensor_temperature
+      - entity: sensor.garage_sensor_temperature
+      - entity: sensor.backroom_temperature
       - entity: sensor.bathroom_sensor_temperature
-      - entity: sensor.sliding_door_temp
-    name: Indoor Temperature
-    icon: mdi:thermometer
     hours_to_show: 48
+    points_per_hour: 4
 
   - type: glance
     title: James Location
