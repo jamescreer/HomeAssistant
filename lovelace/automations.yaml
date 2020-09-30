@@ -14,7 +14,6 @@ cards:
       - entity: automation.midnight_lights_off
       - entity: automation.sunset_lights_on
       - entity: automation.home_lights_on
-      - entity: automation.05_45_lights_on
 
   - type: entities
     title: Bedroom
@@ -33,6 +32,7 @@ cards:
       - entity: automation.disk_use_alarm
       - entity: automation.update_template_sensors
       - entity: automation.new_home_assistant_version
+      - entity: automation.send_notification_upon_failed_login_attempt
 
   - type: entities
     title: Bins
@@ -97,6 +97,7 @@ cards:
       - entity: automation.change_volume_google
       - entity: automation.start_streaming_radio_on_chromecast
       - entity: automation.stop_streaming_radio_on_chromecast
+      - entity: automation.nursery_music
 
   - type: entities
     title: Security
