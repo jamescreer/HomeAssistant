@@ -63,6 +63,8 @@
       - sensor.front_room_temperature
       - sensor.solaredge_exported_power
       - sensor.solaredge_consumption_power
+      - sensor.ups_input_voltage
+      - sensor.garage_input_voltage
 
 ########################################
 #                                      #
