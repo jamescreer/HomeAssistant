@@ -23,13 +23,18 @@ cards:
 
   - type: custom:mini-graph-card
     entities:
-      - entity: sensor.solaredge_power_consumption
-      - entity: sensor.solar_generation
+      - entity: sensor.solaredge_grid_power
     name: Household Power
     show:
       legend: false
-    hours_to_show: 48
+    hours_to_show: 24
     points_per_hour: 4
+    color_thresholds:
+    - value: -5
+      color: green
+    - value: 2
+      color: "#FF0000"
+
 
   - type: custom:mini-graph-card
     title: Temperature
