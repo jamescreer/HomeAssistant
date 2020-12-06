@@ -1,0 +1,25 @@
+#https://home-assistant.io/components/sensor/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+#https://www.home-assistant.io/integrations/min_max/
+  - platform: min_max
+    name: Average Temperature
+    type: mean
+    entity_ids:
+      - sensor.front_room_temperature
+      - sensor.garage_sensor_temperature
+      - sensor.laundry_sensor_temperature
+      - sensor.nursery_temperature
+      - sensor.backroom_temperature
+      - sensor.bathroom_sensor_temperature
+      
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################
