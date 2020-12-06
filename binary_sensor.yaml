@@ -14,9 +14,6 @@
     host: 192.168.1.1
     name: Ubiquiti USG
   - platform: ping
-    host: 192.168.1.179
-    name: Ubiquiti AP
-  - platform: ping
     host: 192.168.1.2
     name: NAS
   - platform: ping
@@ -24,13 +21,19 @@
     name: PC
   - platform: ping
     host: 192.168.1.4
-    name: Sannce
+    name: Dahua
   - platform: ping
     host: 192.168.1.6
     name: Pi-hole
   - platform: ping
+    host: 192.168.1.18
+    name: ADS-B
+  - platform: ping
     host: 192.168.1.103
     name: Philips Hue
+  - platform: ping
+    host: 192.168.1.179
+    name: Ubiquiti AP
 
 ########################################
 #                                      #
