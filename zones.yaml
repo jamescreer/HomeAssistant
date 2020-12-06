@@ -19,7 +19,7 @@
   - name: Home
     latitude: !secret latitude
     longitude: !secret longitude
-    radius: 350
+    radius: 200
 
 ########################################
 #                                      #
