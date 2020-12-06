@@ -39,7 +39,7 @@
   initial_state: true
   trigger:
     - platform: numeric_state
-      entity_id: sensor.garage_ups_input_voltage
+      entity_id: sensor.garage_input_voltage
       below: 220
   action:
     - service: notify.james
@@ -53,7 +53,7 @@
   initial_state: false
   trigger:
     - platform: numeric_state
-      entity_id: sensor.garage_ups_input_voltage
+      entity_id: sensor.garage_input_voltage
       above: 220
   action:
     - service: notify.james
