@@ -43,6 +43,10 @@
       entity_id: light.living_room_1
       mode: blink
     service: lifx.effect_pulse
+  - service: media_player.volume_set
+    data_template:
+        entity_id: media_player.living_room_display
+        volume_level: '0.50'
   - service: tts.google_translate_say
     entity_id: media_player.living_room_display
     data:
@@ -83,6 +87,10 @@
       entity_id: light.living_room_1
       mode: blink
     service: lifx.effect_pulse
+  - service: media_player.volume_set
+    data_template:
+        entity_id: media_player.living_room_display
+        volume_level: '0.50'
   - service: tts.google_translate_say
     entity_id: media_player.living_room_display
     data:
