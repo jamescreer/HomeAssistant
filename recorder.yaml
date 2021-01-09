@@ -65,6 +65,7 @@
       - sensor.solaredge_consumption_power
       - sensor.ups_input_voltage
       - sensor.garage_input_voltage
+      - binary_sensor.rpi_power_status
 
 ########################################
 #                                      #
