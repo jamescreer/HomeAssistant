@@ -32,15 +32,22 @@
     data_template:
       message: "Sarah has arrived home"
   - delay: '00:05:00'
-  - service: tts.google_translate_say
+  - service: media_player.volume_set
+    data:
+      entity_id: media_player.kitchen_display
+      volume_level: '0.50'
+  - service: tts.cloud_say
     entity_id: media_player.kitchen_display
     data:
       message: 'Welcome home Sarah'
+      language: en-AU
+      options:
+        gender: female
   - delay: '00:00:05'
   - service: media_player.play_media
     data:
       entity_id: media_player.kitchen_display
-      media_content_id: !secret sound_sarah_arrival
+      media_content_id: !secret sound_brooklyn
       media_content_type: audio/mp3
 
 - alias: 'James Home'
