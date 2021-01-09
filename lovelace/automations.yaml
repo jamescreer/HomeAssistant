@@ -10,7 +10,7 @@ cards:
     title: Lights
     show_header_toggle: false
     entities:
-      - entity: automation.21_00_lights_off
+      - entity: automation.22_00_lights_off
       - entity: automation.midnight_lights_off
       - entity: automation.sunset_lights_on
       - entity: automation.home_lights_on
