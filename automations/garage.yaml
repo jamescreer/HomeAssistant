@@ -13,6 +13,13 @@
       entity_id: binary_sensor.garage_sensor_motion
       from: 'off'
       to: 'on'
+  condition:
+      condition: and
+      conditions:
+        - condition: template
+          value_template: "{{ states('group.james_home_presence') != 'home' }}"
+        - condition: template
+          value_template: "{{ states('group.sarah_home_presence') != 'home' }}"
   action:
   - service: camera.snapshot
     data:
