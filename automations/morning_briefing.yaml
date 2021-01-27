@@ -1,0 +1,35 @@
+#https://www.home-assistant.io/docs/automation/
+
+########################################
+#                                      #
+#     START OF CONFIGURATION FILE      #
+#                                      #
+########################################
+
+- alias: "Morning Briefing"
+  initial_state: true
+  trigger:
+    platform: time
+    at: '06:00:00'
+  action:
+   - service: notify.email
+     data_template:
+          title: "Morning Briefing - {{ now().strftime( '%d %B %Y') }}"
+          message: >
+                    <b>Today's Weather </b> <br>
+                    The current temperature is {{state_attr('weather.dark_sky', 'temperature')}}&deg;C <br>
+                    Forecast: {{ states('sensor.penrith_forecast_summary') }} <br>
+                    Low temperature today: {{ states.weather.dark_sky.attributes.forecast[0].templow }}&deg;C <br>
+                    High temperature today: {{ states.weather.dark_sky.attributes.forecast[0].temperature }}&deg;C <br>
+                    Predicted precipitation: {% if states.weather.dark_sky.attributes.forecast[0].precipitation == None %} 0mm {% else %} {{ states.weather.dark_sky.attributes.forecast[0].precipitation }}mm {% endif %} <br>
+                    <br>
+                    <b>A Picture of Audrey!</b>
+          data:
+            images:
+              - /config/data/pictures/img{{ range(1, 225) | random }}.jpeg 
+
+########################################
+#                                      #
+#      END OF CONFIGURATION FILE       #
+#                                      #
+########################################
