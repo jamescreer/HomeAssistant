@@ -16,6 +16,19 @@
     api_key: !secret pushover_sarah_api
     user_key: !secret pushover_sarah_user
 
+#https://home-assistant.io/components/notify.smtp/
+  - platform: smtp
+    name: email
+    server: !secret notification_email_smtp
+    port: 465
+    sender: !secret notification_email_sender
+    encryption: tls
+    username: !secret notification_email_username
+    password: !secret notification_email_password
+    recipient:
+      - !secret notification_email_james
+      - !secret notification_email_sarah
+
 ########################################
 #                                      #
 #      END OF CONFIGURATION FILE       #
