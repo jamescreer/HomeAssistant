@@ -35,10 +35,20 @@
         value_template:  '{{states("sensor.garage_ups_load")|int*9}}'
         unit_of_measurement: 'W'
 
-      solar_generation:
-        friendly_name: "Solar Generation"
-        unit_of_measurement: 'W'
-        value_template: "{{ state_attr('sensor.pvoutput', 'power_generation')|float - 19 }}"
+      solar_energy_this_year:
+        friendly_name: "Energy this year"
+        unit_of_measurement: 'kW'
+        value_template: "{{ (states('sensor.solaredge_energy_this_year') | float / 1000) | round(2) }}"
+
+      solar_energy_this_month:
+        friendly_name: "Energy this month"
+        unit_of_measurement: 'kW'
+        value_template: "{{ (states('sensor.solaredge_energy_this_month') | float / 1000) | round(2) }}"
+
+      solar_energy_today:
+        friendly_name: "Energy today"
+        unit_of_measurement: 'kW'
+        value_template: "{{ (states('sensor.solaredge_energy_today') | float / 1000) | round(2) }}"
 
       energy_status:
         friendly_name: "Energy Status"
