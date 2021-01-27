@@ -13,6 +13,8 @@ homeassistant:
   unit_system: metric
   time_zone: Australia/Sydney
   customize: !include customize.yaml
+  allowlist_external_dirs:
+    - /config
 
 ########################################
 #                                      #
@@ -77,19 +79,6 @@ light:
       - light.front_room_1
       - light.front_room_2
 
-#https://www.home-assistant.io/components/netatmo/
-netatmo:
-  client_id: !secret netatmo_api_key
-  client_secret: !secret netatmo_secret_key
-
-#https://www.home-assistant.io/components/speedtestdotnet/
-speedtestdotnet:
-
-#https://www.home-assistant.io/integrations/spotify/
-#spotify:
-#  client_id: !secret spotify_id
-#  client_secret: !secret spotify_secret
-
 #https://github.com/fondberg/spotcast
 spotcast:
   sp_dc: !secret sp_dc
@@ -109,14 +98,7 @@ vacuum:
 weather:
   - platform: darksky
     api_key: !secret darksky_api
-
-webostv:
-  host: 192.168.1.228
-  name: Living Room TV
-  turn_on_action:
-    service: persistent_notification.create
-    data:
-      message: "Turn on action"
+    mode: daily
 
 ########################################
 #                                      #
