@@ -6,8 +6,7 @@
 #                                      #
 ########################################
 
-  db_url: !secret db_url
-  purge_keep_days: 14
+  purge_keep_days: 7
   include:
     domains:
       - automation
@@ -29,8 +28,6 @@
       - sensor.washing_machine_watts
       - sensor.processor_use
       - sensor.memory_use_percent
-      - sensor.netatmo_indoors_temperature
-      - sensor.temperature_nursery
       - sensor.bathroom_sensor_temperature
       - sensor.garage_sensor_temperature
       - sensor.bathroom_sensor_temperature
@@ -38,7 +35,6 @@
       - sensor.laundry_sensor_light_level
       - sensor.fibaro_system_unknown_type_0702_id_3000_temperature
       - sensor.fibaro_system_unknown_type_0702_id_3000_temperature_2
-      - sensor.netatmo_outdoors_temperature
       - sensor.ups_battery_runtime
       - sensor.australia_coronavirus_confirmed
       - sensor.backroom_temperature
@@ -61,11 +57,8 @@
       - sensor.energy_status
       - sensor.solar_status
       - sensor.front_room_temperature
-      - sensor.solaredge_exported_power
-      - sensor.solaredge_consumption_power
-      - sensor.ups_input_voltage
-      - sensor.garage_input_voltage
       - binary_sensor.rpi_power_status
+      - sensor.solaredge_solar_power
 
 ########################################
 #                                      #
