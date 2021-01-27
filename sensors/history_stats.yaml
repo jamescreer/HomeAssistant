@@ -24,6 +24,24 @@
     duration:
        days: 14
     end: "{{ now() }}"
+    
+  - platform: history_stats
+    name: Work meter James
+    entity_id: person.james
+    state: "James Work"
+    type: ratio
+    duration:
+      days: 14
+    end: "{{ now() }}"
+
+  - platform: history_stats
+    name: Work meter Sarah
+    entity_id: person.sarah
+    state: "Sarah Work"
+    type: ratio
+    duration:
+       days: 14
+    end: "{{ now() }}"
 
   - platform: history_stats
     name: Quarantine meter James times left
