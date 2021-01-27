@@ -16,7 +16,7 @@ cards:
        - entity: sensor.home_assistant_v2_db
          name: Database File
        - entity: sensor.disk_use_percent_home
-         name: NAS Disk Usage
+         name: Disk Usage
          icon: mdi:harddisk
        - entity: sensor.uptime
   - type: glance
@@ -41,4 +41,3 @@ cards:
       - entity: sensor.sensor_count
       - entity: sensor.switch_count
       - entity: sensor.tracker_count
-      
