@@ -13,8 +13,3 @@ cards:
       - entity: sensor.audrey
         name: Audrey
         icon: mdi:baby-face
-  - type: entities
-    title: Plex
-    show_header_toggle: false
-    entities:
-      - entity: sensor.plex
