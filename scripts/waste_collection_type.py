@@ -10,9 +10,9 @@ week_number = today.isocalendar()[1]
 
 if (week_number % 2) == 0:
 	# Even weeks are for Landfill waste
-	collection_type = 'Organics & Landfill'
+	collection_type = 'Organics & Recycling'
 else:
 	# Odd weeks are for Recycling and Garden Waste.
-	collection_type = 'Organics & Recycling'
+	collection_type = 'Organics & Landfill'
 
 print(collection_type)
